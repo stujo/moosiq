@@ -41,3 +41,9 @@ Rails Model Associations Workshop
 * [has_and_belongs_to_many](http://guides.rubyonrails.org/association_basics.html#has-and-belongs-to-many-association-reference)
 
 
+#Related Notes
+
+* [Model field data types](http://api.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/TableDefinition.html#method-i-column)
+
+
+

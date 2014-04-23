@@ -7,6 +7,10 @@ describe Band do
     it "should belong to agent" do
       expect(band_acdc).to belong_to :agent
     end
+
+    it "should have many tracks" do
+      expect(band_acdc).to have_many :tracks
+    end
   end
 
 end
