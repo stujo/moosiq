@@ -45,6 +45,9 @@ end
 # gem 'debugger', group: [:development, :test]
 
 group :development, :test do
+  gem "capybara"
   gem 'rspec-rails', '~> 2.14.2'
+  # https://github.com/thoughtbot/shoulda-matchers
+  gem 'shoulda-matchers'
 end
 
