@@ -7,5 +7,5 @@ Band
   Relationships
     should belong to agent
 
-Finished in 0.01131 seconds
+Finished in 0.01255 seconds
 2 examples, 0 failures
