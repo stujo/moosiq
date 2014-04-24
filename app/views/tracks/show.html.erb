@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @track.title %>
+</p>
+
+<p>
+  <strong>Seconds:</strong>
+  <%= @track.seconds %>
+</p>
+
+<p>
+  <strong>Released on:</strong>
+  <%= @track.released_on %>
+</p>
+
+<p>
+  <strong>Band:</strong>
+  <%= @track.band %>
+</p>
+
+<%= link_to 'Edit', edit_track_path(@track) %> |
+<%= link_to 'Back', tracks_path %>

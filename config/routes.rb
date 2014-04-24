@@ -1,5 +1,7 @@
 Moosiq::Application.routes.draw do
 
+  resources :tracks
+
   root to: 'home#index'
 
   resources :agents
