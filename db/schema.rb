@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140423235250) do
 
   create_table "albums", force: true do |t|
     t.string   "title"
+    t.date     "released_on"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

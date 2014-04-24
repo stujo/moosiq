@@ -1,1 +1,3 @@
 --color
+--format documentation -o .rspec_results.txt
+--format documentation
