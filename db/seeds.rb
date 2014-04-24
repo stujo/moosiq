@@ -1,5 +1,4 @@
 def seeder model, key, data
-
   item = model.where({key => data[key]}).first
   if item.nil?
     puts "Seeding #{model.name} #{data[key]}"
@@ -32,6 +31,4 @@ if Object.const_get('Agent')
     end
   end
 end
-
-
 
