@@ -13,5 +13,5 @@ Track
     should belong to band
     should belong to band
 
-Finished in 0.024 seconds
+Finished in 0.02465 seconds
 5 examples, 0 failures
