@@ -22,7 +22,7 @@
     <%= content_tag_for(:tr, @tracks) do |track| %>
         <td><%= link_to track.title, track %></td>
         <td><%= track.released_on %></td>
-        <td><%= link_to track.band.name, track.band %></td>
+        <td><%= (link_to track.band.name, track.band) if track.band %></td>
         <td><%= link_to 'Edit', edit_track_path(track) %></td>
         <td><%= link_to 'Destroy', track, method: :delete, data: {confirm: 'Are you sure?'} %></td>
     <% end %>
