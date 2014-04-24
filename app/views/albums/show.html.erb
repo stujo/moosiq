@@ -7,14 +7,22 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show album</h1>
+  <h1><%= @album.title %></h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Title:</dt>
-  <dd><%= @album.title %></dd>
 
   <dt>Released on:</dt>
   <dd><%= @album.released_on %></dd>
 
 </dl>
+
+<h3>Tracks Included</h3>
+<ul>
+<%= render @album.tracks %>
+</ul>
+
+<h3>Featured Bands</h3>
+<ul>
+<%= render @album.bands.uniq %>
+</ul>

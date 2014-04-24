@@ -7,17 +7,24 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show band</h1>
+  <h1><%= @band.name %></h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Name:</dt>
-  <dd><%= @band.name %></dd>
-
   <dt>Signed on:</dt>
   <dd><%= @band.signed_on %></dd>
 
   <dt>Agent:</dt>
-  <dd><%= @band.agent %></dd>
+  <dd><%= link_to @band.agent.full_name, @band.agent %></dd>
 
 </dl>
+
+<h3>Released Tracks</h3>
+<ul>
+  <%= render @band.tracks %>
+</ul>
+
+<h3>Featured On Albums</h3>
+<ul>
+  <%= render @band.albums.uniq %>
+</ul>

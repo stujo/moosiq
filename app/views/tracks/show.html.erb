@@ -7,13 +7,10 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show track</h1>
+  <h1><%= @track.title %></h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Title:</dt>
-  <dd><%= @track.title %></dd>
-
   <dt>Seconds:</dt>
   <dd><%= @track.seconds %></dd>
 
@@ -21,6 +18,11 @@
   <dd><%= @track.released_on %></dd>
 
   <dt>Band:</dt>
-  <dd><%= @track.band %></dd>
+  <dd><%= link_to @track.band.name, @track.band %></dd>
 
 </dl>
+
+<h3>Featured On</h3>
+<ul>
+  <%= render @track.albums %>
+</ul>

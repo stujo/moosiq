@@ -23,7 +23,7 @@
       <%= content_tag_for(:tr, @bands) do |band| %>
             <td><%= band.name %></td>
             <td><%= band.signed_on %></td>
-            <td><%= band.agent %></td>
+            <td><%= link_to band.agent.full_name, band.agent %></td>
             <td><%= link_to 'Show', band %></td>
         <td><%= link_to 'Edit', edit_band_path(band) %></td>
         <td><%= link_to 'Destroy', band, method: :delete, data: { confirm: 'Are you sure?' } %></td>

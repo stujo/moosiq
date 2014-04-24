@@ -7,17 +7,18 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show agent</h1>
+  <h1><%= @agent.full_name %></h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt>First name:</dt>
-  <dd><%= @agent.first_name %></dd>
-
-  <dt>Last name:</dt>
-  <dd><%= @agent.last_name %></dd>
 
   <dt>Phone number:</dt>
   <dd><%= @agent.phone_number %></dd>
 
 </dl>
+
+<h3>Representing</h3>
+<ul>
+
+<%= render @agent.bands %>
+</ul>
