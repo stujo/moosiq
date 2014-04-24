@@ -1,0 +1,17 @@
+
+Agent
+  Relationships
+    should have many bands
+
+Band
+  Relationships
+    should belong to agent
+    should have many tracks
+
+Track
+  Relationships
+    should belong to band
+    should belong to band
+
+Finished in 0.024 seconds
+5 examples, 0 failures
