@@ -146,6 +146,8 @@ Band
     should belong to agent
     should have many tracks
     should have many albums
+    should have many stints
+    should have many artists
 
 Stint
   Relationships
@@ -276,5 +278,5 @@ Pending:
     # No reason given
     # ./spec/helpers/tracks_helper_spec.rb:14
 
-Finished in 1.03 seconds
-129 examples, 0 failures, 4 pending
+Finished in 1.18 seconds
+131 examples, 0 failures, 4 pending

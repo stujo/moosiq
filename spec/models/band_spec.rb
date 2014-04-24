@@ -15,6 +15,14 @@ describe Band do
     it "should have many albums" do
       expect(band_acdc).to have_many :albums
     end
+
+    it "should have many stints" do
+      expect(band_acdc).to have_many :stints
+    end
+
+    it "should have many artists" do
+      expect(band_acdc).to have_many :artists
+    end
   end
 end
 
