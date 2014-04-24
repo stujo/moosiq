@@ -3,7 +3,11 @@ class BandsController < ApplicationController
 
   # GET /bands
   def index
-    @bands = Band.all
+    if params.has_key? :term
+      @bands = Band.order(:name).where("name like ?","%#{params[:term]}%")
+    else
+      @bands = Band.order(:name)
+    end
   end
 
   # GET /bands/1

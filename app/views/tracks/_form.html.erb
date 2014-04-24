@@ -34,7 +34,7 @@
     <%= f.label :band, :class => "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%#= f.collection_select :band_id, Band.order(:name), :id, :name, {}, :class => "form-control" %>
-      <%= f.text_field :band_name, data: {autocomplete_source: Band.order(:name).map(&:name)} %>
+      <%= f.text_field :band_name, data: {autocomplete_source: bands_path} %>
     </div>
   </div>
   <div class="form-group">
