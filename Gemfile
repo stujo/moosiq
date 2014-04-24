@@ -49,5 +49,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.14.2'
   # https://github.com/thoughtbot/shoulda-matchers
   gem 'shoulda-matchers'
+  gem 'bootstrap-generators', '~> 3.1.1'
 end
 
