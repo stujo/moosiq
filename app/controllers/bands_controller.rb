@@ -8,6 +8,11 @@ class BandsController < ApplicationController
     else
       @bands = Band.order(:name)
     end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @bands.map(&:name) }
+    end
   end
 
   # GET /bands/1
