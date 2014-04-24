@@ -13,4 +13,9 @@ describe Track do
       expect(track_disconoise).to belong_to :band
     end
   end
+
+  it "should have many albums" do
+    expect(track_disconoise).to have_belong_to_many :albums
+  end
+
 end

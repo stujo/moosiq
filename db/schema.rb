@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140423222715) do
+ActiveRecord::Schema.define(version: 20140423235250) do
 
   create_table "agents", force: true do |t|
     t.string   "first_name"
@@ -20,6 +20,20 @@ ActiveRecord::Schema.define(version: 20140423222715) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "albums", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "albums_tracks", id: false, force: true do |t|
+    t.integer "album_id"
+    t.integer "track_id"
+  end
+
+  add_index "albums_tracks", ["album_id", "track_id"], name: "index_albums_tracks_on_album_id_and_track_id"
+  add_index "albums_tracks", ["album_id"], name: "index_albums_tracks_on_album_id"
 
   create_table "bands", force: true do |t|
     t.string   "name"
