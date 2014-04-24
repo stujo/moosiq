@@ -59,3 +59,9 @@ group :development, :test do
   gem 'bootstrap-generators', '~> 3.1.1'
 end
 
+group :development do
+#  gem "rails-erd"
+# Branch fixes errors
+  gem 'rails-erd', git: 'https://github.com/paulwittmann/rails-erd', branch: 'mavericks'
+end
+
