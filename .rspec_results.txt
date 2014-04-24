@@ -20,5 +20,5 @@ Track
     should belong to band
     should have many albums
 
-Finished in 0.05402 seconds
+Finished in 0.07191 seconds
 9 examples, 0 failures
