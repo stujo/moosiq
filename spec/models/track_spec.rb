@@ -15,7 +15,7 @@ describe Track do
   end
 
   it "should have many albums" do
-    expect(track_disconoise).to have_belong_to_many :albums
+    expect(track_disconoise).to have_and_belong_to_many(:albums)
   end
 
 end

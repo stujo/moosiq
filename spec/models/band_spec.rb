@@ -13,7 +13,7 @@ describe Band do
     end
 
     it "should have many albums" do
-      expect(album_ice).to have_many :albums
+      expect(band_acdc).to have_many :albums
     end
 
   end
