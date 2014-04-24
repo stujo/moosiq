@@ -13,10 +13,10 @@ class Band < ActiveRecord::Base
   def agent_name=(full_name)
     if full_name.present?
       bits = full_name.gsub(/\s+/, " ").partition(" ")
-
-      candidate = Agent.where({first_name: bits[0], last_name: bits[2]}).first
-
-      self.agent = candidate
+      if bits[0].present? && bits[2].present?
+        candidate = Agent.find_or_create_by({first_name: bits[0], last_name: bits[2]})
+        self.agent = candidate
+      end
     end
   end
 end
