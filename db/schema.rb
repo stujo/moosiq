@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424231735) do
+ActiveRecord::Schema.define(version: 20140424234826) do
 
   create_table "agents", force: true do |t|
     t.string   "first_name"
@@ -64,6 +64,17 @@ ActiveRecord::Schema.define(version: 20140424231735) do
 
   add_index "stints", ["artist_id"], name: "index_stints_on_artist_id"
   add_index "stints", ["band_id"], name: "index_stints_on_band_id"
+
+  create_table "super_fans", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "artist_id"
+    t.string   "parole_officer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "super_fans", ["artist_id"], name: "index_super_fans_on_artist_id"
 
   create_table "tracks", force: true do |t|
     t.string   "title"

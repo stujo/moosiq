@@ -10,5 +10,8 @@ describe Artist do
     it "should have many bands relationship" do
       expect(princess).to have_many :bands
     end
+    it "should have_one superfan relationship" do
+      expect(princess).to have_one :super_fan
+    end
   end
 end

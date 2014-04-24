@@ -140,6 +140,7 @@ Artist
   Relationships
     should have many stints relationship
     should have many bands relationship
+    should have_one superfan relationship
 
 Band
   Relationships
@@ -153,6 +154,10 @@ Stint
   Relationships
     should be for an artist
     should be with a band
+
+SuperFan
+  Relationships
+    should belong to artist relationship
 
 Track
   Relationships
@@ -278,5 +283,5 @@ Pending:
     # No reason given
     # ./spec/helpers/tracks_helper_spec.rb:14
 
-Finished in 1.18 seconds
-131 examples, 0 failures, 4 pending
+Finished in 1 second
+133 examples, 0 failures, 4 pending
