@@ -1,0 +1,11 @@
+
+Agent
+  Relationships
+    should have many bands
+
+Band
+  Relationships
+    should belong to agent
+
+Finished in 0.01131 seconds
+2 examples, 0 failures
