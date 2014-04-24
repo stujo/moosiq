@@ -60,8 +60,6 @@ group :development, :test do
 end
 
 group :development do
-#  gem "rails-erd"
-# Branch fixes errors
-  gem 'rails-erd', git: 'https://github.com/paulwittmann/rails-erd', branch: 'mavericks'
+  gem 'railroady'
 end
 
