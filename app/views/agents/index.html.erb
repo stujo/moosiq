@@ -1,33 +1,29 @@
 <div class="page-header">
   <%= link_to new_agent_path, :class => 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-plus"></span>
-    New Agent
+      <span class="glyphicon glyphicon-plus"></span>
+      New Agent
   <% end %>
-  <h1>Listing agents</h1>
+  <h1>Our Agents</h1>
 </div>
 
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
     <thead>
-      <tr>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Phone number</th>
-            <th></th>
-        <th></th>
-        <th></th>
-      </tr>
+    <tr>
+      <th>Name</th>
+      <th>Phone number</th>
+      <th></th>
+      <th></th>
+    </tr>
     </thead>
 
     <tbody>
-      <%= content_tag_for(:tr, @agents) do |agent| %>
-            <td><%= agent.first_name %></td>
-            <td><%= agent.last_name %></td>
-            <td><%= agent.phone_number %></td>
-            <td><%= link_to 'Show', agent %></td>
+    <%= content_tag_for(:tr, @agents) do |agent| %>
+        <td><%= link_to agent.full_name, agent %></td>
+        <td><%= agent.phone_number %></td>
         <td><%= link_to 'Edit', edit_agent_path(agent) %></td>
-        <td><%= link_to 'Destroy', agent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
+        <td><%= link_to 'Destroy', agent, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    <% end %>
     </tbody>
   </table>
 </div>

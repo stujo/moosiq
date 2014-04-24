@@ -1,31 +1,29 @@
 <div class="page-header">
   <%= link_to new_album_path, :class => 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-plus"></span>
-    New Album
+      <span class="glyphicon glyphicon-plus"></span>
+      New Album
   <% end %>
-  <h1>Listing albums</h1>
+  <h1>Albums Released</h1>
 </div>
 
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
     <thead>
-      <tr>
-            <th>Title</th>
-            <th>Released on</th>
-            <th></th>
-        <th></th>
-        <th></th>
-      </tr>
+    <tr>
+      <th>Title</th>
+      <th>Released on</th>
+      <th></th>
+      <th></th>
+    </tr>
     </thead>
 
     <tbody>
-      <%= content_tag_for(:tr, @albums) do |album| %>
-            <td><%= album.title %></td>
-            <td><%= album.released_on %></td>
-            <td><%= link_to 'Show', album %></td>
+    <%= content_tag_for(:tr, @albums) do |album| %>
+        <td><%= link_to album.title, album %></td>
+        <td><%= album.released_on %></td>
         <td><%= link_to 'Edit', edit_album_path(album) %></td>
-        <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
+        <td><%= link_to 'Destroy', album, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    <% end %>
     </tbody>
   </table>
 </div>
