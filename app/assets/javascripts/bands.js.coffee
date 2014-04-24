@@ -3,4 +3,4 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
   $('#band_agent_name').autocomplete
-    source: ['Bob Williams', 'John Smith', 'Walter White', 'Paul Jones']
+    source: $('#band_agent_name').data('autocomplete-source')
