@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <%= link_to agents_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_agent_path(@agent), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show agent</h1>
+</div>
 
-<p>
-  <strong>First name:</strong>
-  <%= @agent.first_name %>
-</p>
+<dl class="dl-horizontal">
+  <dt>First name:</dt>
+  <dd><%= @agent.first_name %></dd>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @agent.last_name %>
-</p>
+  <dt>Last name:</dt>
+  <dd><%= @agent.last_name %></dd>
 
-<p>
-  <strong>Phone number:</strong>
-  <%= @agent.phone_number %>
-</p>
+  <dt>Phone number:</dt>
+  <dd><%= @agent.phone_number %></dd>
 
-<%= link_to 'Edit', edit_agent_path(@agent) %> |
-<%= link_to 'Back', agents_path %>
+</dl>

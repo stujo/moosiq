@@ -42,18 +42,17 @@ class AgentsController < ApplicationController
   # DELETE /agents/1
   def destroy
     @agent.destroy
-    redirect_to agents_url
+    redirect_to agents_url, notice: 'Agent was successfully destroyed.'
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_agent
-    @agent = Agent.find(params[:id])
-  end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_agent
+      @agent = Agent.find(params[:id])
+    end
 
-# Never trust parameters from the scary internet, only allow the white list through.
-  def agent_params
-    params.require(:agent).permit(:first_name, :last_name, :phone_number)
-  end
-
+    # Only allow a trusted parameter "white list" through.
+    def agent_params
+      params.require(:agent).permit(:first_name, :last_name, :phone_number)
+    end
 end

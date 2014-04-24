@@ -1,14 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <%= link_to albums_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_album_path(@album), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show album</h1>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @album.title %>
-</p>
+<dl class="dl-horizontal">
+  <dt>Title:</dt>
+  <dd><%= @album.title %></dd>
 
-<p>
-  <strong>Released on:</strong>
-  <%= @album.released_on %>
-</p>
+  <dt>Released on:</dt>
+  <dd><%= @album.released_on %></dd>
 
-<%= link_to 'Edit', edit_album_path(@album) %> |
-<%= link_to 'Back', albums_path %>
+</dl>

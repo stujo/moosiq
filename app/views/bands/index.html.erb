@@ -1,31 +1,33 @@
-<h1>Listing bands</h1>
+<div class="page-header">
+  <%= link_to new_band_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Band
+  <% end %>
+  <h1>Listing bands</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Signed on</th>
-      <th>Agent</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @bands.each do |band| %>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
       <tr>
-        <td><%= band.name %></td>
-        <td><%= band.signed_on %></td>
-        <td><%= band.agent %></td>
-        <td><%= link_to 'Show', band %></td>
+            <th>Name</th>
+            <th>Signed on</th>
+            <th>Agent</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @bands) do |band| %>
+            <td><%= band.name %></td>
+            <td><%= band.signed_on %></td>
+            <td><%= band.agent %></td>
+            <td><%= link_to 'Show', band %></td>
         <td><%= link_to 'Edit', edit_band_path(band) %></td>
         <td><%= link_to 'Destroy', band, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Band', new_band_path %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

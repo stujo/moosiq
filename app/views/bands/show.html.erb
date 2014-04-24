@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <%= link_to bands_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_band_path(@band), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show band</h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @band.name %>
-</p>
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @band.name %></dd>
 
-<p>
-  <strong>Signed on:</strong>
-  <%= @band.signed_on %>
-</p>
+  <dt>Signed on:</dt>
+  <dd><%= @band.signed_on %></dd>
 
-<p>
-  <strong>Agent:</strong>
-  <%= @band.agent %>
-</p>
+  <dt>Agent:</dt>
+  <dd><%= @band.agent %></dd>
 
-<%= link_to 'Edit', edit_band_path(@band) %> |
-<%= link_to 'Back', bands_path %>
+</dl>

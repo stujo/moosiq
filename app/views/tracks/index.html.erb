@@ -1,33 +1,35 @@
-<h1>Listing tracks</h1>
+<div class="page-header">
+  <%= link_to new_track_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Track
+  <% end %>
+  <h1>Listing tracks</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Seconds</th>
-      <th>Released on</th>
-      <th>Band</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tracks.each do |track| %>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
       <tr>
-        <td><%= track.title %></td>
-        <td><%= track.seconds %></td>
-        <td><%= track.released_on %></td>
-        <td><%= track.band %></td>
-        <td><%= link_to 'Show', track %></td>
+            <th>Title</th>
+            <th>Seconds</th>
+            <th>Released on</th>
+            <th>Band</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @tracks) do |track| %>
+            <td><%= track.title %></td>
+            <td><%= track.seconds %></td>
+            <td><%= track.released_on %></td>
+            <td><%= track.band %></td>
+            <td><%= link_to 'Show', track %></td>
         <td><%= link_to 'Edit', edit_track_path(track) %></td>
         <td><%= link_to 'Destroy', track, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Track', new_track_path %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
