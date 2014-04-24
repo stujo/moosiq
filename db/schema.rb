@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140423235250) do
+ActiveRecord::Schema.define(version: 20140424231735) do
 
   create_table "agents", force: true do |t|
     t.string   "first_name"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 20140423235250) do
   add_index "albums_tracks", ["album_id", "track_id"], name: "index_albums_tracks_on_album_id_and_track_id"
   add_index "albums_tracks", ["album_id"], name: "index_albums_tracks_on_album_id"
 
+  create_table "artists", force: true do |t|
+    t.string   "name"
+    t.date     "date_of_birth"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "bands", force: true do |t|
     t.string   "name"
     t.date     "signed_on"
@@ -45,6 +52,18 @@ ActiveRecord::Schema.define(version: 20140423235250) do
   end
 
   add_index "bands", ["agent_id"], name: "index_bands_on_agent_id"
+
+  create_table "stints", force: true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "band_id"
+    t.integer  "artist_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stints", ["artist_id"], name: "index_stints_on_artist_id"
+  add_index "stints", ["band_id"], name: "index_stints_on_band_id"
 
   create_table "tracks", force: true do |t|
     t.string   "title"

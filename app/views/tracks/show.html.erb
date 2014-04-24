@@ -18,7 +18,7 @@
   <dd><%= @track.released_on %></dd>
 
   <dt>Band:</dt>
-  <dd><%= link_to @track.band.name, @track.band %></dd>
+  <dd><%= link_to @track.band.name, @track.band if @track.band %></dd>
 
 </dl>
 

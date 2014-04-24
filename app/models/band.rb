@@ -2,6 +2,9 @@ class Band < ActiveRecord::Base
   belongs_to :agent
   has_many :tracks
   has_many :albums, through: :tracks
+  has_many :stints
+  has_many :artists, through: :stints
+
 
   # Support for autocomplete agent selection
   # based on:

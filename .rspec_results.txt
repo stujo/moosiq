@@ -1,4 +1,132 @@
 
+AgentsController
+  GET index
+    assigns all agents as @agents
+  GET show
+    assigns the requested agent as @agent
+  GET new
+    assigns a new agent as @agent
+  GET edit
+    assigns the requested agent as @agent
+  POST create
+    with valid params
+      creates a new Agent
+      assigns a newly created agent as @agent
+      redirects to the created agent
+    with invalid params
+      assigns a newly created but unsaved agent as @agent
+      re-renders the 'new' template
+  PUT update
+    with valid params
+      updates the requested agent
+      assigns the requested agent as @agent
+      redirects to the agent
+    with invalid params
+      assigns the agent as @agent
+      re-renders the 'edit' template
+  DELETE destroy
+    destroys the requested agent
+    redirects to the agents list
+
+AlbumsController
+  GET index
+    assigns all albums as @albums
+  GET show
+    assigns the requested album as @album
+  GET new
+    assigns a new album as @album
+  GET edit
+    assigns the requested album as @album
+  POST create
+    with valid params
+      creates a new Album
+      assigns a newly created album as @album
+      redirects to the created album
+    with invalid params
+      assigns a newly created but unsaved album as @album
+      re-renders the 'new' template
+  PUT update
+    with valid params
+      updates the requested album
+      assigns the requested album as @album
+      redirects to the album
+    with invalid params
+      assigns the album as @album
+      re-renders the 'edit' template
+  DELETE destroy
+    destroys the requested album
+    redirects to the albums list
+
+BandsController
+  GET index
+    assigns all bands as @bands
+  GET show
+    assigns the requested band as @band
+  GET new
+    assigns a new band as @band
+  GET edit
+    assigns the requested band as @band
+  POST create
+    with valid params
+      creates a new Band
+      assigns a newly created band as @band
+      redirects to the created band
+    with invalid params
+      assigns a newly created but unsaved band as @band
+      re-renders the 'new' template
+  PUT update
+    with valid params
+      updates the requested band
+      assigns the requested band as @band
+      redirects to the band
+    with invalid params
+      assigns the band as @band
+      re-renders the 'edit' template
+  DELETE destroy
+    destroys the requested band
+    redirects to the bands list
+
+TracksController
+  GET index
+    assigns all tracks as @tracks
+  GET show
+    assigns the requested track as @track
+  GET new
+    assigns a new track as @track
+  GET edit
+    assigns the requested track as @track
+  POST create
+    with valid params
+      creates a new Track
+      assigns a newly created track as @track
+      redirects to the created track
+    with invalid params
+      assigns a newly created but unsaved track as @track
+      re-renders the 'new' template
+  PUT update
+    with valid params
+      updates the requested track
+      assigns the requested track as @track
+      redirects to the track
+    with invalid params
+      assigns the track as @track
+      re-renders the 'edit' template
+  DELETE destroy
+    destroys the requested track
+    redirects to the tracks list
+
+AgentsHelper
+  add some examples to (or delete) /work/labs/moosiq/spec/helpers/agents_helper_spec.rb (PENDING: Not yet implemented)
+
+AlbumsHelper
+  add some examples to (or delete) /work/labs/moosiq/spec/helpers/albums_helper_spec.rb (PENDING: No reason given)
+
+BandsHelper
+  add some examples to (or delete) /work/labs/moosiq/spec/helpers/bands_helper_spec.rb (PENDING: No reason given)
+
+TracksHelper
+  add some examples to (or delete) /work/labs/moosiq/spec/helpers/tracks_helper_spec.rb (PENDING: No reason given)
+
 Agent
   Relationships
     should have many bands
@@ -8,11 +136,21 @@ Album
     should have many tracks
     should have many bands
 
+Artist
+  Relationships
+    should have many stints relationship
+    should have many bands relationship
+
 Band
   Relationships
     should belong to agent
     should have many tracks
     should have many albums
+
+Stint
+  Relationships
+    should be for an artist
+    should be with a band
 
 Track
   Relationships
@@ -20,5 +158,123 @@ Track
     should belong to band
     should have many albums
 
-Finished in 0.05262 seconds
-9 examples, 0 failures
+Agents
+  GET /agents
+    works! (now write some real specs)
+
+Albums
+  GET /albums
+    works! (now write some real specs)
+
+Bands
+  GET /bands
+    works! (now write some real specs)
+
+Tracks
+  GET /tracks
+    works! (now write some real specs)
+
+AgentsController
+  routing
+    routes to #index
+    routes to #new
+    routes to #show
+    routes to #edit
+    routes to #create
+    routes to #update
+    routes to #destroy
+
+AlbumsController
+  routing
+    routes to #index
+    routes to #new
+    routes to #show
+    routes to #edit
+    routes to #create
+    routes to #update
+    routes to #destroy
+
+BandsController
+  routing
+    routes to #index
+    routes to #new
+    routes to #show
+    routes to #edit
+    routes to #create
+    routes to #update
+    routes to #destroy
+
+TracksController
+  routing
+    routes to #index
+    routes to #new
+    routes to #show
+    routes to #edit
+    routes to #create
+    routes to #update
+    routes to #destroy
+
+agents/edit
+  renders the edit agent form
+
+agents/index
+  renders a list of agents
+
+agents/new
+  renders new agent form
+
+agents/show
+  renders attributes in <p>
+
+albums/edit
+  renders the edit album form
+
+albums/index
+  renders a list of albums
+
+albums/new
+  renders new album form
+
+albums/show
+  renders attributes in <p>
+
+bands/edit
+  renders the edit band form
+
+bands/index
+  renders a list of bands
+
+bands/new
+  renders new band form
+
+bands/show
+  renders attributes in <p>
+
+tracks/edit
+  renders the edit track form
+
+tracks/index
+  renders a list of tracks
+
+tracks/new
+  renders new track form
+
+tracks/show
+  renders attributes in <p>
+
+Pending:
+  AgentsHelper add some examples to (or delete) /work/labs/moosiq/spec/helpers/agents_helper_spec.rb
+    # Not yet implemented
+    # ./spec/helpers/agents_helper_spec.rb:14
+  AlbumsHelper add some examples to (or delete) /work/labs/moosiq/spec/helpers/albums_helper_spec.rb
+    # No reason given
+    # ./spec/helpers/albums_helper_spec.rb:14
+  BandsHelper add some examples to (or delete) /work/labs/moosiq/spec/helpers/bands_helper_spec.rb
+    # No reason given
+    # ./spec/helpers/bands_helper_spec.rb:14
+  TracksHelper add some examples to (or delete) /work/labs/moosiq/spec/helpers/tracks_helper_spec.rb
+    # No reason given
+    # ./spec/helpers/tracks_helper_spec.rb:14
+
+Finished in 1.03 seconds
+129 examples, 0 failures, 4 pending

@@ -16,7 +16,7 @@ describe "tracks/new" do
     assert_select "form[action=?][method=?]", tracks_path, "post" do
       assert_select "input#track_title[name=?]", "track[title]"
       assert_select "input#track_seconds[name=?]", "track[seconds]"
-      assert_select "input#track_band[name=?]", "track[band]"
+      assert_select "input#track_band_name[name=?]", "track[band_name]"
     end
   end
 end
