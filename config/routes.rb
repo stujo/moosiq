@@ -1,5 +1,7 @@
 Moosiq::Application.routes.draw do
 
+  resources :albums
+
   resources :tracks
 
   root to: 'home#index'
