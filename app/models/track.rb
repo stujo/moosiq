@@ -1,5 +1,5 @@
 class Track < ActiveRecord::Base
-  belongs_to :band
+  belongs_to :band, inverse_of: :tracks
   has_and_belongs_to_many :albums
 
   # Support for autocomplete band selection

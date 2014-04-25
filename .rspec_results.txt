@@ -283,5 +283,5 @@ Pending:
     # No reason given
     # ./spec/helpers/tracks_helper_spec.rb:14
 
-Finished in 1 second
+Finished in 0.94047 seconds
 133 examples, 0 failures, 4 pending

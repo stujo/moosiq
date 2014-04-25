@@ -2,9 +2,12 @@ require 'spec_helper'
 
 describe "bands/edit" do
   before(:each) do
+    @agent = assign(:agent, stub_model(Agent,
+                                        :first_name => "Agent", :last_name => "Jones"
+    ))
     @band = assign(:band, stub_model(Band,
       :name => "MyString",
-      :agent => nil
+      :agent => @agent
     ))
   end
 

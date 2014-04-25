@@ -1,5 +1,5 @@
 class Band < ActiveRecord::Base
-  belongs_to :agent
+  belongs_to :agent, inverse_of: :bands
   has_many :tracks
   has_many :albums, through: :tracks
   has_many :stints
