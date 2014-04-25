@@ -1,4 +1,4 @@
 <% start_year = 1970 if start_year.nil? %>
 <span class="moosiq_date_select">
-  <%= f.date_select(field_name, {:order => [:day, :month, :year], :start_year => start_year, :end_year => Time.now.year}, :class => "form-control") %>
+  <%= f.date_select(field_name, {:order => [:day, :month, :year], :start_year => start_year, :end_year => Time.now.year, :include_blank => true, :default => nil}, :class => "form-control" ) %>
 </span>

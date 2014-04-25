@@ -18,11 +18,12 @@
 
 </dl>
 <h3>Super Fans</h3>
+<%= link_to 'Add New SuperFan', new_artist_super_fan_path(@artist) %>
 <%= render @artist.super_fans %>
 
 <h3>Current Bands</h3>
+<%= link_to 'Add New Stint', new_artist_stint_path(@artist) %>
 <%= render @artist.current_stints %>
-
 
 <h3>Past Band Stints</h3>
 <%= render @artist.past_stints %>

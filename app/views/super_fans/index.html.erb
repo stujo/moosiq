@@ -1,5 +1,5 @@
 <div class="page-header">
-  <%= link_to new_super_fan_path, :class => 'btn btn-primary' do %>
+  <%= link_to new_artist_super_fan_path(@artist), :class => 'btn btn-primary' do %>
       <span class="glyphicon glyphicon-plus"></span>
       New Super fan
   <% end %>
@@ -20,11 +20,11 @@
 
     <tbody>
     <%= content_tag_for(:tr, @super_fans) do |super_fan| %>
-        <td><%= link_to super_fan.full_name, super_fan %></td>
+        <td><%= link_to super_fan.full_name, artist_super_fan_path(super_fan.artist, super_fan) %></td>
         <td><%= link_to super_fan.artist.name, super_fan.artist if super_fan.artist %></td>
         <td><%= super_fan.parole_officer %></td>
-        <td><%= link_to 'Edit', edit_super_fan_path(super_fan) %></td>
-        <td><%= link_to 'Destroy', super_fan, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        <td><%= link_to 'Edit', edit_artist_super_fan_path(super_fan.artist,super_fan) %></td>
+        <td><%= link_to 'Destroy', artist_super_fan_path(super_fan.artist,super_fan), method: :delete, data: {confirm: 'Are you sure?'} %></td>
     <% end %>
     </tbody>
   </table>

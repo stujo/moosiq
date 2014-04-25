@@ -1,26 +1,20 @@
 <div class="page-header">
-  <%= link_to stints_path, :class => 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+  <%= link_to artist_stints_path(@stint.artist), :class => 'btn btn-default' do %>
+      <span class="glyphicon glyphicon-list-alt"></span>
+      Back
   <% end %>
-  <%= link_to edit_stint_path(@stint), :class => 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+  <%= link_to edit_artist_stint_path(@stint.artist, @stint), :class => 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+      Edit
   <% end %>
-  <h1>Show stint</h1>
+  <h1><%= @stint.artist.name %> with <%= @stint.band.name %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Band:</dt>
-  <dd><%= @stint.band %></dd>
+<% if @stint.end_date.nil? %>
+    <%= link_to @stint.artist.name, @stint.artist %> joined <%= link_to @stint.band.name, @stint.band %> on
+    <%= @stint.start_date %> and is still in the band
 
-  <dt>Artist:</dt>
-  <dd><%= @stint.artist %></dd>
-
-  <dt>Start date:</dt>
-  <dd><%= @stint.start_date %></dd>
-
-  <dt>End date:</dt>
-  <dd><%= @stint.end_date %></dd>
-
-</dl>
+<% else %>
+    <%= link_to @stint.artist.name, @stint.artist %> was with <%= link_to @stint.band.name, @stint.band %> from
+    <%= @stint.start_date %> to ><%= @stint.end_date %>
+<% end %>

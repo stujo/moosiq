@@ -3,8 +3,8 @@ require 'spec_helper'
 describe "stints/edit" do
   before(:each) do
     @stint = assign(:stint, stub_model(Stint,
-      :band => nil,
-      :artist => nil
+                                       :band => stub_model(Band, :name => 'myband'),
+                                       :artist => stub_model(Artist, :name => 'mary')
     ))
   end
 
@@ -12,9 +12,8 @@ describe "stints/edit" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form[action=?][method=?]", stint_path(@stint), "post" do
-      assert_select "input#stint_band[name=?]", "stint[band]"
-      assert_select "input#stint_artist[name=?]", "stint[artist]"
+      assert_select "form[action=?][method=?]", artist_stint_path(@stint.artist, @stint), "post" do
+      assert_select "select#stint_band_id[name=?]", "stint[band_id]"
     end
   end
 end

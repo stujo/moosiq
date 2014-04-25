@@ -19,11 +19,12 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe SuperFansController do
+  let!(:artist) { Artist.find_or_create_by({"name" => "MyArtist"}) }
 
   # This should return the minimal set of attributes required to create a valid
   # SuperFan. As you add validations to SuperFan, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "first_name" => "MyString" } }
+  let(:valid_attributes) { {"first_name" => "MyString", artist: artist} }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -33,7 +34,7 @@ describe SuperFansController do
   describe "GET index" do
     it "assigns all super_fans as @super_fans" do
       super_fan = SuperFan.create! valid_attributes
-      get :index, {}, valid_session
+      get :index, {artist_id: artist.id.to_param}, valid_session
       assigns(:super_fans).should eq([super_fan])
     end
   end
@@ -41,14 +42,14 @@ describe SuperFansController do
   describe "GET show" do
     it "assigns the requested super_fan as @super_fan" do
       super_fan = SuperFan.create! valid_attributes
-      get :show, {:id => super_fan.to_param}, valid_session
+      get :show, {artist_id: artist.id.to_param, :id => super_fan.to_param}, valid_session
       assigns(:super_fan).should eq(super_fan)
     end
   end
 
   describe "GET new" do
     it "assigns a new super_fan as @super_fan" do
-      get :new, {}, valid_session
+      get :new, {artist_id: artist.id.to_param}, valid_session
       assigns(:super_fan).should be_a_new(SuperFan)
     end
   end
@@ -56,7 +57,7 @@ describe SuperFansController do
   describe "GET edit" do
     it "assigns the requested super_fan as @super_fan" do
       super_fan = SuperFan.create! valid_attributes
-      get :edit, {:id => super_fan.to_param}, valid_session
+      get :edit, {artist_id: artist.id.to_param, :id => super_fan.to_param}, valid_session
       assigns(:super_fan).should eq(super_fan)
     end
   end
@@ -65,19 +66,19 @@ describe SuperFansController do
     describe "with valid params" do
       it "creates a new SuperFan" do
         expect {
-          post :create, {:super_fan => valid_attributes}, valid_session
+          post :create, {artist_id: artist.id.to_param, :super_fan => valid_attributes}, valid_session
         }.to change(SuperFan, :count).by(1)
       end
 
       it "assigns a newly created super_fan as @super_fan" do
-        post :create, {:super_fan => valid_attributes}, valid_session
+        post :create, {artist_id: artist.id.to_param, :super_fan => valid_attributes}, valid_session
         assigns(:super_fan).should be_a(SuperFan)
         assigns(:super_fan).should be_persisted
       end
 
-      it "redirects to the created super_fan" do
-        post :create, {:super_fan => valid_attributes}, valid_session
-        response.should redirect_to(SuperFan.last)
+      it "redirects to the artists super fans" do
+        post :create, {artist_id: artist.id.to_param, :super_fan => valid_attributes}, valid_session
+        response.should redirect_to(artist_super_fans_path(artist))
       end
     end
 
@@ -85,14 +86,14 @@ describe SuperFansController do
       it "assigns a newly created but unsaved super_fan as @super_fan" do
         # Trigger the behavior that occurs when invalid params are submitted
         SuperFan.any_instance.stub(:save).and_return(false)
-        post :create, {:super_fan => { "first_name" => "invalid value" }}, valid_session
+        post :create, {artist_id: artist.id.to_param, :super_fan => {"first_name" => "invalid value"}}, valid_session
         assigns(:super_fan).should be_a_new(SuperFan)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         SuperFan.any_instance.stub(:save).and_return(false)
-        post :create, {:super_fan => { "first_name" => "invalid value" }}, valid_session
+        post :create, {artist_id: artist.id.to_param, :super_fan => {"first_name" => "invalid value"}}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,20 +107,20 @@ describe SuperFansController do
         # specifies that the SuperFan created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        SuperFan.any_instance.should_receive(:update).with({ "first_name" => "MyString" })
-        put :update, {:id => super_fan.to_param, :super_fan => { "first_name" => "MyString" }}, valid_session
+        SuperFan.any_instance.should_receive(:update).with({"first_name" => "MyString"})
+        put :update, {artist_id: artist.id.to_param, :id => super_fan.to_param, :super_fan => {"first_name" => "MyString"}}, valid_session
       end
 
       it "assigns the requested super_fan as @super_fan" do
         super_fan = SuperFan.create! valid_attributes
-        put :update, {:id => super_fan.to_param, :super_fan => valid_attributes}, valid_session
+        put :update, {artist_id: artist.id.to_param, :id => super_fan.to_param, :super_fan => valid_attributes}, valid_session
         assigns(:super_fan).should eq(super_fan)
       end
 
       it "redirects to the super_fan" do
         super_fan = SuperFan.create! valid_attributes
-        put :update, {:id => super_fan.to_param, :super_fan => valid_attributes}, valid_session
-        response.should redirect_to(super_fan)
+        put :update, {artist_id: artist.id.to_param, :id => super_fan.to_param, :super_fan => valid_attributes}, valid_session
+        response.should redirect_to(artist_super_fans_path artist)
       end
     end
 
@@ -128,7 +129,7 @@ describe SuperFansController do
         super_fan = SuperFan.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         SuperFan.any_instance.stub(:save).and_return(false)
-        put :update, {:id => super_fan.to_param, :super_fan => { "first_name" => "invalid value" }}, valid_session
+        put :update, {artist_id: artist.id.to_param, :id => super_fan.to_param, :super_fan => {"first_name" => "invalid value"}}, valid_session
         assigns(:super_fan).should eq(super_fan)
       end
 
@@ -136,7 +137,7 @@ describe SuperFansController do
         super_fan = SuperFan.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         SuperFan.any_instance.stub(:save).and_return(false)
-        put :update, {:id => super_fan.to_param, :super_fan => { "first_name" => "invalid value" }}, valid_session
+        put :update, {artist_id: artist.id.to_param, :id => super_fan.to_param, :super_fan => {"first_name" => "invalid value"}}, valid_session
         response.should render_template("edit")
       end
     end
@@ -146,14 +147,14 @@ describe SuperFansController do
     it "destroys the requested super_fan" do
       super_fan = SuperFan.create! valid_attributes
       expect {
-        delete :destroy, {:id => super_fan.to_param}, valid_session
+        delete :destroy, {artist_id: artist.id.to_param, :id => super_fan.to_param}, valid_session
       }.to change(SuperFan, :count).by(-1)
     end
 
     it "redirects to the super_fans list" do
       super_fan = SuperFan.create! valid_attributes
-      delete :destroy, {:id => super_fan.to_param}, valid_session
-      response.should redirect_to(super_fans_url)
+      delete :destroy, {artist_id: artist.id.to_param, :id => super_fan.to_param}, valid_session
+      response.should redirect_to(artist_super_fans_path(artist))
     end
   end
 

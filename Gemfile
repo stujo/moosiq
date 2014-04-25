@@ -57,6 +57,7 @@ group :development, :test do
   # https://github.com/thoughtbot/shoulda-matchers
   gem 'shoulda-matchers'
   gem 'bootstrap-generators', '~> 3.1.1'
+  gem 'simplecov'
 end
 
 group :development do

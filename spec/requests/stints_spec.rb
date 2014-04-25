@@ -1,11 +1,13 @@
 require 'spec_helper'
 
 describe "Stints" do
-  describe "GET /stints" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get stints_path
-      response.status.should be(200)
+  context "with Artist" do
+    let(:maya) { Artist.find_or_create_by(name: 'Maya') }
+    describe "GET /stints" do
+      it "Is nested under artist" do
+        get artist_stints_path(maya)
+        response.status.should be(200)
+      end
     end
   end
 end

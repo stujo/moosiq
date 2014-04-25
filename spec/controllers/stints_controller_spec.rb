@@ -20,141 +20,145 @@ require 'spec_helper'
 
 describe StintsController do
 
-  # This should return the minimal set of attributes required to create a valid
-  # Stint. As you add validations to Stint, be sure to
-  # adjust the attributes here as well.
-  let(:valid_attributes) { { "band" => "" } }
+  context "with Artist" do
+    let!(:maya) { Artist.find_or_create_by(name: 'Maya') }
+    let!(:my_band) { Band.find_or_create_by(name: 'MyBand') }
 
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # StintsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+    # This should return the minimal set of attributes required to create a valid
+    # Stint. As you add validations to Stint, be sure to
+    # adjust the attributes here as well.
+    let(:valid_attributes) { {:band_id => my_band.id, :artist_id => maya.id} }
 
-  describe "GET index" do
-    it "assigns all stints as @stints" do
-      stint = Stint.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:stints).should eq([stint])
-    end
-  end
+    # This should return the minimal set of values that should be in the session
+    # in order to pass any filters (e.g. authentication) defined in
+    # StintsController. Be sure to keep this updated too.
+    let(:valid_session) { {} }
 
-  describe "GET show" do
-    it "assigns the requested stint as @stint" do
-      stint = Stint.create! valid_attributes
-      get :show, {:id => stint.to_param}, valid_session
-      assigns(:stint).should eq(stint)
-    end
-  end
-
-  describe "GET new" do
-    it "assigns a new stint as @stint" do
-      get :new, {}, valid_session
-      assigns(:stint).should be_a_new(Stint)
-    end
-  end
-
-  describe "GET edit" do
-    it "assigns the requested stint as @stint" do
-      stint = Stint.create! valid_attributes
-      get :edit, {:id => stint.to_param}, valid_session
-      assigns(:stint).should eq(stint)
-    end
-  end
-
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new Stint" do
-        expect {
-          post :create, {:stint => valid_attributes}, valid_session
-        }.to change(Stint, :count).by(1)
-      end
-
-      it "assigns a newly created stint as @stint" do
-        post :create, {:stint => valid_attributes}, valid_session
-        assigns(:stint).should be_a(Stint)
-        assigns(:stint).should be_persisted
-      end
-
-      it "redirects to the created stint" do
-        post :create, {:stint => valid_attributes}, valid_session
-        response.should redirect_to(Stint.last)
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved stint as @stint" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Stint.any_instance.stub(:save).and_return(false)
-        post :create, {:stint => { "band" => "invalid value" }}, valid_session
-        assigns(:stint).should be_a_new(Stint)
-      end
-
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Stint.any_instance.stub(:save).and_return(false)
-        post :create, {:stint => { "band" => "invalid value" }}, valid_session
-        response.should render_template("new")
-      end
-    end
-  end
-
-  describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested stint" do
+    describe "GET index" do
+      it "assigns all stints as @stints" do
         stint = Stint.create! valid_attributes
-        # Assuming there are no other stints in the database, this
-        # specifies that the Stint created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        Stint.any_instance.should_receive(:update).with({ "band" => "" })
-        put :update, {:id => stint.to_param, :stint => { "band" => "" }}, valid_session
+        get :index, {:artist_id => maya.to_param}, valid_session
+        assigns(:stints).should eq([stint])
       end
+    end
 
+    describe "GET show" do
       it "assigns the requested stint as @stint" do
         stint = Stint.create! valid_attributes
-        put :update, {:id => stint.to_param, :stint => valid_attributes}, valid_session
+        get :show, {:artist_id => maya.to_param, :id => stint.to_param}, valid_session
         assigns(:stint).should eq(stint)
-      end
-
-      it "redirects to the stint" do
-        stint = Stint.create! valid_attributes
-        put :update, {:id => stint.to_param, :stint => valid_attributes}, valid_session
-        response.should redirect_to(stint)
       end
     end
 
-    describe "with invalid params" do
-      it "assigns the stint as @stint" do
+    describe "GET new" do
+      it "assigns a new stint as @stint" do
+        get :new, {:artist_id => maya.to_param}, valid_session
+        assigns(:stint).should be_a_new(Stint)
+      end
+    end
+
+    describe "GET edit" do
+      it "assigns the requested stint as @stint" do
         stint = Stint.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Stint.any_instance.stub(:save).and_return(false)
-        put :update, {:id => stint.to_param, :stint => { "band" => "invalid value" }}, valid_session
+        get :edit, {:artist_id => maya.to_param, :id => stint.to_param}, valid_session
         assigns(:stint).should eq(stint)
       end
+    end
 
-      it "re-renders the 'edit' template" do
+    describe "POST create" do
+      describe "with valid params" do
+        it "creates a new Stint" do
+          expect {
+            post :create, {:artist_id => maya.to_param, :stint => valid_attributes}, valid_session
+          }.to change(Stint, :count).by(1)
+        end
+
+        it "assigns a newly created stint as @stint" do
+          post :create, {:artist_id => maya.to_param, :stint => valid_attributes}, valid_session
+          assigns(:stint).should be_a(Stint)
+          assigns(:stint).should be_persisted
+        end
+
+        it "redirects to the created stint" do
+          post :create, {:artist_id => maya.to_param, :stint => valid_attributes}, valid_session
+          response.should redirect_to(artist_stints_path(maya))
+        end
+      end
+
+      describe "with invalid params" do
+        it "assigns a newly created but unsaved stint as @stint" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          Stint.any_instance.stub(:save).and_return(false)
+          post :create, {:artist_id => maya.to_param, :stint => {"band" => "invalid value"}}, valid_session
+          assigns(:stint).should be_a_new(Stint)
+        end
+
+        it "re-renders the 'new' template" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          Stint.any_instance.stub(:save).and_return(false)
+          post :create, {:artist_id => maya.to_param, :stint => {"band" => "invalid value"}}, valid_session
+          response.should render_template("new")
+        end
+      end
+    end
+
+    describe "PUT update" do
+      describe "with valid params" do
+        it "updates the requested stint" do
+          stint = Stint.create! valid_attributes
+          # Assuming there are no other stints in the database, this
+          # specifies that the Stint created on the previous line
+          # receives the :update_attributes message with whatever params are
+          # submitted in the request.
+          Stint.any_instance.should_receive(:update).with(:band_id.to_s => my_band.id.to_s)
+          put :update, {:artist_id => maya.to_param, :id => stint.to_param, :stint => {:band_id => my_band.id}}, valid_session
+        end
+
+        it "assigns the requested stint as @stint" do
+          stint = Stint.create! valid_attributes
+          put :update, {:artist_id => maya.to_param, :id => stint.to_param, :stint => valid_attributes}, valid_session
+          assigns(:stint).should eq(stint)
+        end
+
+        it "redirects to the stint" do
+          stint = Stint.create! valid_attributes
+          put :update, {:artist_id => maya.to_param, :id => stint.to_param, :stint => valid_attributes}, valid_session
+          response.should redirect_to(artist_stints_path(maya))
+        end
+      end
+
+      describe "with invalid params" do
+        it "assigns the stint as @stint" do
+          stint = Stint.create! valid_attributes
+          # Trigger the behavior that occurs when invalid params are submitted
+          Stint.any_instance.stub(:save).and_return(false)
+          put :update, {:artist_id => maya.to_param, :id => stint.to_param, :stint => {"band" => "invalid value"}}, valid_session
+          assigns(:stint).should eq(stint)
+        end
+
+        it "re-renders the 'edit' template" do
+          stint = Stint.create! valid_attributes
+          # Trigger the behavior that occurs when invalid params are submitted
+          Stint.any_instance.stub(:save).and_return(false)
+          put :update, {:artist_id => maya.to_param, :id => stint.to_param, :stint => {"band" => "invalid value"}}, valid_session
+          response.should render_template("edit")
+        end
+      end
+    end
+
+    describe "DELETE destroy" do
+      it "destroys the requested stint" do
         stint = Stint.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Stint.any_instance.stub(:save).and_return(false)
-        put :update, {:id => stint.to_param, :stint => { "band" => "invalid value" }}, valid_session
-        response.should render_template("edit")
+        expect {
+          delete :destroy, {:artist_id => maya.to_param, :id => stint.to_param}, valid_session
+        }.to change(Stint, :count).by(-1)
+      end
+
+      it "redirects to the stints list" do
+        stint = Stint.create! valid_attributes
+        delete :destroy, {:artist_id => maya.to_param, :id => stint.to_param}, valid_session
+        response.should redirect_to(artist_stints_url(maya))
       end
     end
   end
-
-  describe "DELETE destroy" do
-    it "destroys the requested stint" do
-      stint = Stint.create! valid_attributes
-      expect {
-        delete :destroy, {:id => stint.to_param}, valid_session
-      }.to change(Stint, :count).by(-1)
-    end
-
-    it "redirects to the stints list" do
-      stint = Stint.create! valid_attributes
-      delete :destroy, {:id => stint.to_param}, valid_session
-      response.should redirect_to(stints_url)
-    end
-  end
-
 end

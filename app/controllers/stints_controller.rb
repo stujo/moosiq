@@ -1,9 +1,10 @@
 class StintsController < ApplicationController
+  before_action :set_artist
   before_action :set_stint, only: [:show, :edit, :update, :destroy]
 
   # GET /stints
   def index
-    @stints = Stint.all
+    @stints = @artist.stints.order(:start_date => :desc)
   end
 
   # GET /stints/1
@@ -13,6 +14,7 @@ class StintsController < ApplicationController
   # GET /stints/new
   def new
     @stint = Stint.new
+    @stint.artist = @artist
   end
 
   # GET /stints/1/edit
@@ -22,9 +24,10 @@ class StintsController < ApplicationController
   # POST /stints
   def create
     @stint = Stint.new(stint_params)
+    @stint.artist = @artist
 
     if @stint.save
-      redirect_to @stint, notice: 'Stint was successfully created.'
+      redirect_to artist_stints_path(@stint.artist), notice: 'Stint was successfully created.'
     else
       render action: 'new'
     end
@@ -33,7 +36,7 @@ class StintsController < ApplicationController
   # PATCH/PUT /stints/1
   def update
     if @stint.update(stint_params)
-      redirect_to @stint, notice: 'Stint was successfully updated.'
+      redirect_to artist_stints_path(@stint.artist), notice: 'Stint was successfully updated.'
     else
       render action: 'edit'
     end
@@ -42,7 +45,7 @@ class StintsController < ApplicationController
   # DELETE /stints/1
   def destroy
     @stint.destroy
-    redirect_to stints_url, notice: 'Stint was successfully destroyed.'
+    redirect_to artist_stints_path(@artist), notice: 'Stint was successfully destroyed.'
   end
 
   private
@@ -53,6 +56,10 @@ class StintsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def stint_params
-      params.require(:stint).permit(:band_id, :artist_id, :start_date, :end_date)
+      params.require(:stint).permit(:band_id, :start_date, :end_date)
     end
+
+  def set_artist
+    @artist = Artist.find(params[:artist_id])
+  end
 end

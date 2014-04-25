@@ -1,35 +1,33 @@
 <div class="page-header">
-  <%= link_to new_stint_path, :class => 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-plus"></span>
-    New Stint
+  <%= link_to new_artist_stint_path(@artist), :class => 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-plus"></span>
+      New Stint
   <% end %>
-  <h1>Listing stints</h1>
+  <h1>Band Stints for <%=  @artist.name %></h1>
 </div>
 
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
     <thead>
-      <tr>
-            <th>Band</th>
-            <th>Artist</th>
-            <th>Start date</th>
-            <th>End date</th>
-            <th></th>
-        <th></th>
-        <th></th>
-      </tr>
+    <tr>
+      <th>Band</th>
+      <th>Artist</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th></th>
+      <th></th>
+    </tr>
     </thead>
 
     <tbody>
-      <%= content_tag_for(:tr, @stints) do |stint| %>
-            <td><%= stint.band %></td>
-            <td><%= stint.artist %></td>
-            <td><%= stint.start_date %></td>
-            <td><%= stint.end_date %></td>
-            <td><%= link_to 'Show', stint %></td>
-        <td><%= link_to 'Edit', edit_stint_path(stint) %></td>
-        <td><%= link_to 'Destroy', stint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
+    <%= content_tag_for(:tr, @stints) do |stint| %>
+        <td><%= link_to stint.band.name, stint.band  if stint.band %></td>
+        <td><%= link_to stint.artist.name, stint.artist if stint.artist%></td>
+        <td><%= stint.start_date %></td>
+        <td><%= stint.end_date %></td>
+        <td><%= link_to 'Edit', edit_artist_stint_path(stint.artist, stint) if stint.artist %></td>
+        <td><%= link_to 'Destroy', artist_stint_path(stint.artist, stint), method: :delete, data: {confirm: 'Are you sure?'} if stint.artist %></td>
+    <% end %>
     </tbody>
   </table>
 </div>
