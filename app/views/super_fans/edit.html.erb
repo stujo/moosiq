@@ -1,0 +1,13 @@
+<div class="page-header">
+  <%= link_to super_fans_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to @super_fan, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Show
+  <% end %>
+  <h1>Editing super_fan</h1>
+</div>
+
+<%= render 'form' %>
