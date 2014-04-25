@@ -1,14 +1,16 @@
 <%= simple_form_for(@super_fan) do |f| %>
-  <%= f.error_notification %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.association :artist %>
-    <%= f.input :parole_officer %>
-  </div>
+    <div class="form-inputs">
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.association :artist %>
+      <%= f.input :parole_officer %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= f.submit :class => "btn btn-primary" %>
+      </div>
+    </div>
 <% end %>
