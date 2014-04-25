@@ -3,10 +3,10 @@ require 'spec_helper'
 describe "super_fans/edit" do
   before(:each) do
     @super_fan = assign(:super_fan, stub_model(SuperFan,
-      :first_name => "MyString",
-      :last_name => "MyString",
-      :artist => nil,
-      :parole_officer => "MyString"
+                                               :first_name => "MyString",
+                                               :last_name => "MyString",
+                                               :artist => nil,
+                                               :parole_officer => "MyString"
     ))
   end
 

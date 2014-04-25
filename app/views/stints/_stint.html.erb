@@ -1,0 +1,7 @@
+<li><%= link_to stint.band.name, stint.band %>
+  <% if stint.end_date.nil? %>
+      (&nbsp;Since: <%= stint.start_date %>&nbsp;)
+  <% else %>
+      (&nbsp;<%= stint.start_date %>&nbsp;-&nbsp;<%= stint.end_date %>&nbsp;)
+  <% end %>
+</li>

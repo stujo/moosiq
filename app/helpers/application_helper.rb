@@ -11,4 +11,11 @@ module ApplicationHelper
       item[:active] = item[:tag] == active_tag
     end
   end
+
+  def age_from_dob(dob)
+    now = Time.now.utc.to_date
+    now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+  end
+
+
 end

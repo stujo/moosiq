@@ -11,8 +11,8 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Runtime in Seconds:</dt>
-  <dd><%= @track.seconds %></dd>
+  <dt>Runtime:</dt>
+  <dd><%= distance_of_time_in_words( @track.seconds, 0, {include_seconds: true} )%></dd>
 
   <dt>Released on:</dt>
   <dd><%= @track.released_on %></dd>

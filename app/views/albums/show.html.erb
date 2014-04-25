@@ -15,6 +15,9 @@
   <dt>Released on:</dt>
   <dd><%= @album.released_on %></dd>
 
+  <dt>Total Runtime:</dt>
+  <dd><%= distance_of_time_in_words( @album.total_seconds, 0, {include_seconds: true} )%></dd>
+
 </dl>
 
 <h3>Tracks Included</h3>

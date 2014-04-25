@@ -7,17 +7,23 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show artist</h1>
+  <h1><%= @artist.name %></h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Name:</dt>
-  <dd><%= @artist.name %></dd>
 
   <dt>Date of birth:</dt>
-  <dd><%= @artist.date_of_birth %></dd>
+  <dd><%= @artist.date_of_birth %> ( Age:&nbsp;<%= age_from_dob @artist.date_of_birth %> )</dd>
 
-  <dt>Super fan:</dt>
-  <dd><%= @artist.super_fans %></dd>
 
 </dl>
+<h3>Super Fans</h3>
+<%= render @artist.super_fans %>
+
+<h3>Current Bands</h3>
+<%= render @artist.current_stints %>
+
+
+<h3>Past Band Stints</h3>
+<%= render @artist.past_stints %>
+
