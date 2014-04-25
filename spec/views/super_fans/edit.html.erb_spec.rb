@@ -17,7 +17,7 @@ describe "super_fans/edit" do
     assert_select "form[action=?][method=?]", super_fan_path(@super_fan), "post" do
       assert_select "input#super_fan_first_name[name=?]", "super_fan[first_name]"
       assert_select "input#super_fan_last_name[name=?]", "super_fan[last_name]"
-      assert_select "input#super_fan_artist[name=?]", "super_fan[artist]"
+      assert_select "select#super_fan_artist_id[name=?]", "super_fan[artist_id]"
       assert_select "input#super_fan_parole_officer[name=?]", "super_fan[parole_officer]"
     end
   end

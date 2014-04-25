@@ -12,7 +12,6 @@
       <tr>
             <th>Name</th>
             <th>Date of birth</th>
-            <th>Super fan</th>
             <th></th>
         <th></th>
         <th></th>
@@ -23,7 +22,6 @@
       <%= content_tag_for(:tr, @artists) do |artist| %>
             <td><%= artist.name %></td>
             <td><%= artist.date_of_birth %></td>
-            <td><%= artist.super_fan %></td>
             <td><%= link_to 'Show', artist %></td>
         <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
         <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>

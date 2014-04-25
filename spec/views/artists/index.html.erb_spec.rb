@@ -4,12 +4,10 @@ describe "artists/index" do
   before(:each) do
     assign(:artists, [
       stub_model(Artist,
-        :name => "Name",
-        :super_fan => nil
+        :name => "Name"
       ),
       stub_model(Artist,
-        :name => "Name",
-        :super_fan => nil
+        :name => "Name"
       )
     ])
   end

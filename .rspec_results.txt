@@ -57,6 +57,35 @@ AlbumsController
     destroys the requested album
     redirects to the albums list
 
+ArtistsController
+  GET index
+    assigns all artists as @artists
+  GET show
+    assigns the requested artist as @artist
+  GET new
+    assigns a new artist as @artist
+  GET edit
+    assigns the requested artist as @artist
+  POST create
+    with valid params
+      creates a new Artist
+      assigns a newly created artist as @artist
+      redirects to the created artist
+    with invalid params
+      assigns a newly created but unsaved artist as @artist
+      re-renders the 'new' template
+  PUT update
+    with valid params
+      updates the requested artist
+      assigns the requested artist as @artist
+      redirects to the artist
+    with invalid params
+      assigns the artist as @artist
+      re-renders the 'edit' template
+  DELETE destroy
+    destroys the requested artist
+    redirects to the artists list
+
 BandsController
   GET index
     assigns all bands as @bands
@@ -85,6 +114,35 @@ BandsController
   DELETE destroy
     destroys the requested band
     redirects to the bands list
+
+SuperFansController
+  GET index
+    assigns all super_fans as @super_fans
+  GET show
+    assigns the requested super_fan as @super_fan
+  GET new
+    assigns a new super_fan as @super_fan
+  GET edit
+    assigns the requested super_fan as @super_fan
+  POST create
+    with valid params
+      creates a new SuperFan
+      assigns a newly created super_fan as @super_fan
+      redirects to the created super_fan
+    with invalid params
+      assigns a newly created but unsaved super_fan as @super_fan
+      re-renders the 'new' template
+  PUT update
+    with valid params
+      updates the requested super_fan
+      assigns the requested super_fan as @super_fan
+      redirects to the super_fan
+    with invalid params
+      assigns the super_fan as @super_fan
+      re-renders the 'edit' template
+  DELETE destroy
+    destroys the requested super_fan
+    redirects to the super_fans list
 
 TracksController
   GET index
@@ -121,8 +179,14 @@ AgentsHelper
 AlbumsHelper
   add some examples to (or delete) /work/labs/moosiq/spec/helpers/albums_helper_spec.rb (PENDING: No reason given)
 
+ArtistsHelper
+  add some examples to (or delete) /work/labs/moosiq/spec/helpers/artists_helper_spec.rb (PENDING: No reason given)
+
 BandsHelper
   add some examples to (or delete) /work/labs/moosiq/spec/helpers/bands_helper_spec.rb (PENDING: No reason given)
+
+SuperFansHelper
+  add some examples to (or delete) /work/labs/moosiq/spec/helpers/super_fans_helper_spec.rb (PENDING: No reason given)
 
 TracksHelper
   add some examples to (or delete) /work/labs/moosiq/spec/helpers/tracks_helper_spec.rb (PENDING: No reason given)
@@ -140,7 +204,7 @@ Artist
   Relationships
     should have many stints relationship
     should have many bands relationship
-    should have_one superfan relationship
+    should have many superfan relationship
 
 Band
   Relationships
@@ -173,8 +237,16 @@ Albums
   GET /albums
     works! (now write some real specs)
 
+Artists
+  GET /artists
+    works! (now write some real specs)
+
 Bands
   GET /bands
+    works! (now write some real specs)
+
+SuperFans
+  GET /super_fans
     works! (now write some real specs)
 
 Tracks
@@ -201,7 +273,27 @@ AlbumsController
     routes to #update
     routes to #destroy
 
+ArtistsController
+  routing
+    routes to #index
+    routes to #new
+    routes to #show
+    routes to #edit
+    routes to #create
+    routes to #update
+    routes to #destroy
+
 BandsController
+  routing
+    routes to #index
+    routes to #new
+    routes to #show
+    routes to #edit
+    routes to #create
+    routes to #update
+    routes to #destroy
+
+SuperFansController
   routing
     routes to #index
     routes to #new
@@ -245,6 +337,18 @@ albums/new
 albums/show
   renders attributes in <p>
 
+artists/edit
+  renders the edit artist form
+
+artists/index
+  renders a list of artists
+
+artists/new
+  renders new artist form
+
+artists/show
+  renders attributes in <p>
+
 bands/edit
   renders the edit band form
 
@@ -255,6 +359,18 @@ bands/new
   renders new band form
 
 bands/show
+  renders attributes in <p>
+
+super_fans/edit
+  renders the edit super_fan form
+
+super_fans/index
+  renders a list of super_fans
+
+super_fans/new
+  renders new super_fan form
+
+super_fans/show
   renders attributes in <p>
 
 tracks/edit
@@ -276,12 +392,18 @@ Pending:
   AlbumsHelper add some examples to (or delete) /work/labs/moosiq/spec/helpers/albums_helper_spec.rb
     # No reason given
     # ./spec/helpers/albums_helper_spec.rb:14
+  ArtistsHelper add some examples to (or delete) /work/labs/moosiq/spec/helpers/artists_helper_spec.rb
+    # No reason given
+    # ./spec/helpers/artists_helper_spec.rb:14
   BandsHelper add some examples to (or delete) /work/labs/moosiq/spec/helpers/bands_helper_spec.rb
     # No reason given
     # ./spec/helpers/bands_helper_spec.rb:14
+  SuperFansHelper add some examples to (or delete) /work/labs/moosiq/spec/helpers/super_fans_helper_spec.rb
+    # No reason given
+    # ./spec/helpers/super_fans_helper_spec.rb:14
   TracksHelper add some examples to (or delete) /work/labs/moosiq/spec/helpers/tracks_helper_spec.rb
     # No reason given
     # ./spec/helpers/tracks_helper_spec.rb:14
 
-Finished in 0.94047 seconds
-133 examples, 0 failures, 4 pending
+Finished in 1.36 seconds
+191 examples, 0 failures, 6 pending

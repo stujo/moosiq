@@ -3,8 +3,7 @@ require 'spec_helper'
 describe "artists/show" do
   before(:each) do
     @artist = assign(:artist, stub_model(Artist,
-      :name => "Name",
-      :super_fan => nil
+      :name => "Name"
     ))
   end
 
