@@ -24,6 +24,7 @@ gem 'quiet_assets'
 
 gem 'simple_form'
 
+gem 'bootstrap-sass'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
@@ -62,4 +63,9 @@ group :development do
 end
 
 gem 'pg'
+
+group :production do
+  gem 'rails_12factor'
+end
+
 
