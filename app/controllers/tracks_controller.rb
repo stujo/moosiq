@@ -1,6 +1,8 @@
 class TracksController < ApplicationController
   before_action :set_track, only: [:show, :edit, :update, :destroy]
 
+  skip_before_filter :verify_authenticity_token, only: [:search]
+
   # GET /tracks
   def index
     @tracks = Track.all
@@ -17,6 +19,13 @@ class TracksController < ApplicationController
 
   # GET /tracks/1/edit
   def edit
+  end
+
+  def search
+    @search = SimpleSearch.new SimpleSearch.get_params(params)
+    if @search.valid?
+      @tracks = @search.search_within Track.all, :title
+    end
   end
 
   # POST /tracks
