@@ -3,9 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
@@ -27,6 +24,7 @@ gem 'quiet_assets'
 
 gem 'simple_form'
 
+gem 'bootstrap-sass'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
@@ -63,4 +61,11 @@ end
 group :development do
   gem 'railroady'
 end
+
+gem 'pg'
+
+group :production do
+  gem 'rails_12factor'
+end
+
 
