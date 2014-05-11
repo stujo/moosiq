@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140424234826) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "agents", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -33,8 +36,8 @@ ActiveRecord::Schema.define(version: 20140424234826) do
     t.integer "track_id"
   end
 
-  add_index "albums_tracks", ["album_id", "track_id"], name: "index_albums_tracks_on_album_id_and_track_id"
-  add_index "albums_tracks", ["album_id"], name: "index_albums_tracks_on_album_id"
+  add_index "albums_tracks", ["album_id", "track_id"], name: "index_albums_tracks_on_album_id_and_track_id", using: :btree
+  add_index "albums_tracks", ["album_id"], name: "index_albums_tracks_on_album_id", using: :btree
 
   create_table "artists", force: true do |t|
     t.string   "name"
@@ -51,7 +54,7 @@ ActiveRecord::Schema.define(version: 20140424234826) do
     t.datetime "updated_at"
   end
 
-  add_index "bands", ["agent_id"], name: "index_bands_on_agent_id"
+  add_index "bands", ["agent_id"], name: "index_bands_on_agent_id", using: :btree
 
   create_table "stints", force: true do |t|
     t.date     "start_date"
@@ -62,8 +65,8 @@ ActiveRecord::Schema.define(version: 20140424234826) do
     t.datetime "updated_at"
   end
 
-  add_index "stints", ["artist_id"], name: "index_stints_on_artist_id"
-  add_index "stints", ["band_id"], name: "index_stints_on_band_id"
+  add_index "stints", ["artist_id"], name: "index_stints_on_artist_id", using: :btree
+  add_index "stints", ["band_id"], name: "index_stints_on_band_id", using: :btree
 
   create_table "super_fans", force: true do |t|
     t.string   "first_name"
@@ -74,7 +77,7 @@ ActiveRecord::Schema.define(version: 20140424234826) do
     t.datetime "updated_at"
   end
 
-  add_index "super_fans", ["artist_id"], name: "index_super_fans_on_artist_id"
+  add_index "super_fans", ["artist_id"], name: "index_super_fans_on_artist_id", using: :btree
 
   create_table "tracks", force: true do |t|
     t.string   "title"
@@ -85,6 +88,6 @@ ActiveRecord::Schema.define(version: 20140424234826) do
     t.datetime "updated_at"
   end
 
-  add_index "tracks", ["band_id"], name: "index_tracks_on_band_id"
+  add_index "tracks", ["band_id"], name: "index_tracks_on_band_id", using: :btree
 
 end
