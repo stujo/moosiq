@@ -1,7 +1,6 @@
 class SimpleSearch
   include ActiveModel::Model
 
-
   #Generic Search 'q'
   attr_accessor :q
   validates_length_of :q, minimum: 2, message: 'Please enter at least 2 letters to search'
