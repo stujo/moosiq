@@ -425,5 +425,5 @@ tracks/new
 tracks/show
   renders attributes in <p>
 
-Finished in 5.6 seconds
+Finished in 6.04 seconds
 213 examples, 0 failures
