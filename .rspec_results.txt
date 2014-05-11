@@ -116,62 +116,63 @@ BandsController
     redirects to the bands list
 
 StintsController
-  GET index
-    assigns all stints as @stints (FAILED - 1)
-  GET show
-    assigns the requested stint as @stint (FAILED - 2)
-  GET new
-    assigns a new stint as @stint (FAILED - 3)
-  GET edit
-    assigns the requested stint as @stint (FAILED - 4)
-  POST create
-    with valid params
-      creates a new Stint (FAILED - 5)
-      assigns a newly created stint as @stint (FAILED - 6)
-      redirects to the created stint (FAILED - 7)
-    with invalid params
-      assigns a newly created but unsaved stint as @stint (FAILED - 8)
-      re-renders the 'new' template (FAILED - 9)
-  PUT update
-    with valid params
-      updates the requested stint (FAILED - 10)
-      assigns the requested stint as @stint (FAILED - 11)
-      redirects to the stint (FAILED - 12)
-    with invalid params
-      assigns the stint as @stint (FAILED - 13)
-      re-renders the 'edit' template (FAILED - 14)
-  DELETE destroy
-    destroys the requested stint (FAILED - 15)
-    redirects to the stints list (FAILED - 16)
+  with Artist
+    GET index
+      assigns all stints as @stints
+    GET show
+      assigns the requested stint as @stint
+    GET new
+      assigns a new stint as @stint
+    GET edit
+      assigns the requested stint as @stint
+    POST create
+      with valid params
+        creates a new Stint
+        assigns a newly created stint as @stint
+        redirects to the created stint
+      with invalid params
+        assigns a newly created but unsaved stint as @stint
+        re-renders the 'new' template
+    PUT update
+      with valid params
+        updates the requested stint
+        assigns the requested stint as @stint
+        redirects to the stint
+      with invalid params
+        assigns the stint as @stint
+        re-renders the 'edit' template
+    DELETE destroy
+      destroys the requested stint
+      redirects to the stints list
 
 SuperFansController
   GET index
-    assigns all super_fans as @super_fans (FAILED - 17)
+    assigns all super_fans as @super_fans
   GET show
-    assigns the requested super_fan as @super_fan (FAILED - 18)
+    assigns the requested super_fan as @super_fan
   GET new
-    assigns a new super_fan as @super_fan (FAILED - 19)
+    assigns a new super_fan as @super_fan
   GET edit
-    assigns the requested super_fan as @super_fan (FAILED - 20)
+    assigns the requested super_fan as @super_fan
   POST create
     with valid params
-      creates a new SuperFan (FAILED - 21)
-      assigns a newly created super_fan as @super_fan (FAILED - 22)
-      redirects to the created super_fan (FAILED - 23)
+      creates a new SuperFan
+      assigns a newly created super_fan as @super_fan
+      redirects to the artists super fans
     with invalid params
-      assigns a newly created but unsaved super_fan as @super_fan (FAILED - 24)
-      re-renders the 'new' template (FAILED - 25)
+      assigns a newly created but unsaved super_fan as @super_fan
+      re-renders the 'new' template
   PUT update
     with valid params
-      updates the requested super_fan (FAILED - 26)
-      assigns the requested super_fan as @super_fan (FAILED - 27)
-      redirects to the super_fan (FAILED - 28)
+      updates the requested super_fan
+      assigns the requested super_fan as @super_fan
+      redirects to the super_fan
     with invalid params
-      assigns the super_fan as @super_fan (FAILED - 29)
-      re-renders the 'edit' template (FAILED - 30)
+      assigns the super_fan as @super_fan
+      re-renders the 'edit' template
   DELETE destroy
-    destroys the requested super_fan (FAILED - 31)
-    redirects to the super_fans list (FAILED - 32)
+    destroys the requested super_fan
+    redirects to the super_fans list
 
 TracksController
   GET index
@@ -201,27 +202,6 @@ TracksController
   DELETE destroy
     destroys the requested track
     redirects to the tracks list
-
-AgentsHelper
-  add some examples to (or delete) /work/labs/moosiq/spec/helpers/agents_helper_spec.rb (PENDING: Not yet implemented)
-
-AlbumsHelper
-  add some examples to (or delete) /work/labs/moosiq/spec/helpers/albums_helper_spec.rb (PENDING: No reason given)
-
-ArtistsHelper
-  add some examples to (or delete) /work/labs/moosiq/spec/helpers/artists_helper_spec.rb (PENDING: No reason given)
-
-BandsHelper
-  add some examples to (or delete) /work/labs/moosiq/spec/helpers/bands_helper_spec.rb (PENDING: No reason given)
-
-StintsHelper
-  add some examples to (or delete) /work/labs/moosiq/spec/helpers/stints_helper_spec.rb (PENDING: No reason given)
-
-SuperFansHelper
-  add some examples to (or delete) /work/labs/moosiq/spec/helpers/super_fans_helper_spec.rb (PENDING: No reason given)
-
-TracksHelper
-  add some examples to (or delete) /work/labs/moosiq/spec/helpers/tracks_helper_spec.rb (PENDING: No reason given)
 
 Agent
   Relationships
@@ -278,12 +258,14 @@ Bands
     works! (now write some real specs)
 
 Stints
-  GET /stints
-    works! (now write some real specs) (FAILED - 33)
+  with Artist
+    GET /stints
+      Is nested under artist
 
 SuperFans
-  GET /super_fans
-    works! (now write some real specs) (FAILED - 34)
+  with Artist
+    GET /super_fans
+      Is nested under artist
 
 Tracks
   GET /tracks
@@ -331,23 +313,23 @@ BandsController
 
 StintsController
   routing
-    routes to #index (FAILED - 35)
-    routes to #new (FAILED - 36)
-    routes to #show (FAILED - 37)
-    routes to #edit (FAILED - 38)
-    routes to #create (FAILED - 39)
-    routes to #update (FAILED - 40)
-    routes to #destroy (FAILED - 41)
+    routes to #index
+    routes to #new
+    routes to #show
+    routes to #edit
+    routes to #create
+    routes to #update
+    routes to #destroy
 
 SuperFansController
   routing
-    routes to #index (FAILED - 42)
-    routes to #new (FAILED - 43)
-    routes to #show (FAILED - 44)
-    routes to #edit (FAILED - 45)
-    routes to #create (FAILED - 46)
-    routes to #update (FAILED - 47)
-    routes to #destroy (FAILED - 48)
+    routes to #index
+    routes to #new
+    routes to #show
+    routes to #edit
+    routes to #create
+    routes to #update
+    routes to #destroy
 
 TracksController
   routing
@@ -393,7 +375,7 @@ artists/new
   renders new artist form
 
 artists/show
-  renders attributes in <p> (FAILED - 49)
+  renders attributes in <p>
 
 bands/edit
   renders the edit band form
@@ -408,28 +390,28 @@ bands/show
   renders attributes in <p>
 
 stints/edit
-  renders the edit stint form (FAILED - 50)
+  renders the edit stint form
 
 stints/index
-  renders a list of stints (FAILED - 51)
+  renders a list of stints
 
 stints/new
-  renders new stint form (FAILED - 52)
+  renders new stint form
 
 stints/show
-  renders attributes in <p> (FAILED - 53)
+  renders stint info
 
 super_fans/edit
-  renders the edit super_fan form (FAILED - 54)
+  renders the edit super_fan form
 
 super_fans/index
-  renders a list of super_fans (FAILED - 55)
+  renders a list of super_fans
 
 super_fans/new
-  renders new super_fan form (FAILED - 56)
+  renders new super_fan form
 
 super_fans/show
-  renders attributes in <p> (FAILED - 57)
+  renders attributes in <p>
 
 tracks/edit
   renders the edit track form
@@ -443,431 +425,5 @@ tracks/new
 tracks/show
   renders attributes in <p>
 
-Pending:
-  AgentsHelper add some examples to (or delete) /work/labs/moosiq/spec/helpers/agents_helper_spec.rb
-    # Not yet implemented
-    # ./spec/helpers/agents_helper_spec.rb:14
-  AlbumsHelper add some examples to (or delete) /work/labs/moosiq/spec/helpers/albums_helper_spec.rb
-    # No reason given
-    # ./spec/helpers/albums_helper_spec.rb:14
-  ArtistsHelper add some examples to (or delete) /work/labs/moosiq/spec/helpers/artists_helper_spec.rb
-    # No reason given
-    # ./spec/helpers/artists_helper_spec.rb:14
-  BandsHelper add some examples to (or delete) /work/labs/moosiq/spec/helpers/bands_helper_spec.rb
-    # No reason given
-    # ./spec/helpers/bands_helper_spec.rb:14
-  StintsHelper add some examples to (or delete) /work/labs/moosiq/spec/helpers/stints_helper_spec.rb
-    # No reason given
-    # ./spec/helpers/stints_helper_spec.rb:14
-  SuperFansHelper add some examples to (or delete) /work/labs/moosiq/spec/helpers/super_fans_helper_spec.rb
-    # No reason given
-    # ./spec/helpers/super_fans_helper_spec.rb:14
-  TracksHelper add some examples to (or delete) /work/labs/moosiq/spec/helpers/tracks_helper_spec.rb
-    # No reason given
-    # ./spec/helpers/tracks_helper_spec.rb:14
-
-Failures:
-
-  1) StintsController GET index assigns all stints as @stints
-     Failure/Error: stint = Stint.create! valid_attributes
-     ActiveRecord::AssociationTypeMismatch:
-       Band(#2161527700) expected, got String(#2155957040)
-     # ./spec/controllers/stints_controller_spec.rb:35:in `block (3 levels) in <top (required)>'
-
-  2) StintsController GET show assigns the requested stint as @stint
-     Failure/Error: stint = Stint.create! valid_attributes
-     ActiveRecord::AssociationTypeMismatch:
-       Band(#2161527700) expected, got String(#2155957040)
-     # ./spec/controllers/stints_controller_spec.rb:43:in `block (3 levels) in <top (required)>'
-
-  3) StintsController GET new assigns a new stint as @stint
-     Failure/Error: get :new, {}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"new", :controller=>"stints"}
-     # ./spec/controllers/stints_controller_spec.rb:51:in `block (3 levels) in <top (required)>'
-
-  4) StintsController GET edit assigns the requested stint as @stint
-     Failure/Error: stint = Stint.create! valid_attributes
-     ActiveRecord::AssociationTypeMismatch:
-       Band(#2161527700) expected, got String(#2155957040)
-     # ./spec/controllers/stints_controller_spec.rb:58:in `block (3 levels) in <top (required)>'
-
-  5) StintsController POST create with valid params creates a new Stint
-     Failure/Error: post :create, {:stint => valid_attributes}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"create", :controller=>"stints", :stint=>{"band"=>""}}
-     # ./spec/controllers/stints_controller_spec.rb:68:in `block (5 levels) in <top (required)>'
-     # ./spec/controllers/stints_controller_spec.rb:67:in `block (4 levels) in <top (required)>'
-
-  6) StintsController POST create with valid params assigns a newly created stint as @stint
-     Failure/Error: post :create, {:stint => valid_attributes}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"create", :controller=>"stints", :stint=>{"band"=>""}}
-     # ./spec/controllers/stints_controller_spec.rb:73:in `block (4 levels) in <top (required)>'
-
-  7) StintsController POST create with valid params redirects to the created stint
-     Failure/Error: post :create, {:stint => valid_attributes}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"create", :controller=>"stints", :stint=>{"band"=>""}}
-     # ./spec/controllers/stints_controller_spec.rb:79:in `block (4 levels) in <top (required)>'
-
-  8) StintsController POST create with invalid params assigns a newly created but unsaved stint as @stint
-     Failure/Error: post :create, {:stint => { "band" => "invalid value" }}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"create", :controller=>"stints", :stint=>{"band"=>"invalid value"}}
-     # ./spec/controllers/stints_controller_spec.rb:88:in `block (4 levels) in <top (required)>'
-
-  9) StintsController POST create with invalid params re-renders the 'new' template
-     Failure/Error: post :create, {:stint => { "band" => "invalid value" }}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"create", :controller=>"stints", :stint=>{"band"=>"invalid value"}}
-     # ./spec/controllers/stints_controller_spec.rb:95:in `block (4 levels) in <top (required)>'
-
-  10) StintsController PUT update with valid params updates the requested stint
-     Failure/Error: stint = Stint.create! valid_attributes
-     ActiveRecord::AssociationTypeMismatch:
-       Band(#2161527700) expected, got String(#2155957040)
-     # ./spec/controllers/stints_controller_spec.rb:104:in `block (4 levels) in <top (required)>'
-
-  11) StintsController PUT update with valid params assigns the requested stint as @stint
-     Failure/Error: stint = Stint.create! valid_attributes
-     ActiveRecord::AssociationTypeMismatch:
-       Band(#2161527700) expected, got String(#2155957040)
-     # ./spec/controllers/stints_controller_spec.rb:114:in `block (4 levels) in <top (required)>'
-
-  12) StintsController PUT update with valid params redirects to the stint
-     Failure/Error: stint = Stint.create! valid_attributes
-     ActiveRecord::AssociationTypeMismatch:
-       Band(#2161527700) expected, got String(#2155957040)
-     # ./spec/controllers/stints_controller_spec.rb:120:in `block (4 levels) in <top (required)>'
-
-  13) StintsController PUT update with invalid params assigns the stint as @stint
-     Failure/Error: stint = Stint.create! valid_attributes
-     ActiveRecord::AssociationTypeMismatch:
-       Band(#2161527700) expected, got String(#2155957040)
-     # ./spec/controllers/stints_controller_spec.rb:128:in `block (4 levels) in <top (required)>'
-
-  14) StintsController PUT update with invalid params re-renders the 'edit' template
-     Failure/Error: stint = Stint.create! valid_attributes
-     ActiveRecord::AssociationTypeMismatch:
-       Band(#2161527700) expected, got String(#2155957040)
-     # ./spec/controllers/stints_controller_spec.rb:136:in `block (4 levels) in <top (required)>'
-
-  15) StintsController DELETE destroy destroys the requested stint
-     Failure/Error: stint = Stint.create! valid_attributes
-     ActiveRecord::AssociationTypeMismatch:
-       Band(#2161527700) expected, got String(#2155957040)
-     # ./spec/controllers/stints_controller_spec.rb:147:in `block (3 levels) in <top (required)>'
-
-  16) StintsController DELETE destroy redirects to the stints list
-     Failure/Error: stint = Stint.create! valid_attributes
-     ActiveRecord::AssociationTypeMismatch:
-       Band(#2161527700) expected, got String(#2155957040)
-     # ./spec/controllers/stints_controller_spec.rb:154:in `block (3 levels) in <top (required)>'
-
-  17) SuperFansController GET index assigns all super_fans as @super_fans
-     Failure/Error: get :index, {}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"index", :controller=>"super_fans"}
-     # ./spec/controllers/super_fans_controller_spec.rb:36:in `block (3 levels) in <top (required)>'
-
-  18) SuperFansController GET show assigns the requested super_fan as @super_fan
-     Failure/Error: get :show, {:id => super_fan.to_param}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"show", :controller=>"super_fans", :id=>"1"}
-     # ./spec/controllers/super_fans_controller_spec.rb:44:in `block (3 levels) in <top (required)>'
-
-  19) SuperFansController GET new assigns a new super_fan as @super_fan
-     Failure/Error: get :new, {}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"new", :controller=>"super_fans"}
-     # ./spec/controllers/super_fans_controller_spec.rb:51:in `block (3 levels) in <top (required)>'
-
-  20) SuperFansController GET edit assigns the requested super_fan as @super_fan
-     Failure/Error: get :edit, {:id => super_fan.to_param}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"edit", :controller=>"super_fans", :id=>"1"}
-     # ./spec/controllers/super_fans_controller_spec.rb:59:in `block (3 levels) in <top (required)>'
-
-  21) SuperFansController POST create with valid params creates a new SuperFan
-     Failure/Error: post :create, {:super_fan => valid_attributes}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"create", :controller=>"super_fans", :super_fan=>{"first_name"=>"MyString"}}
-     # ./spec/controllers/super_fans_controller_spec.rb:68:in `block (5 levels) in <top (required)>'
-     # ./spec/controllers/super_fans_controller_spec.rb:67:in `block (4 levels) in <top (required)>'
-
-  22) SuperFansController POST create with valid params assigns a newly created super_fan as @super_fan
-     Failure/Error: post :create, {:super_fan => valid_attributes}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"create", :controller=>"super_fans", :super_fan=>{"first_name"=>"MyString"}}
-     # ./spec/controllers/super_fans_controller_spec.rb:73:in `block (4 levels) in <top (required)>'
-
-  23) SuperFansController POST create with valid params redirects to the created super_fan
-     Failure/Error: post :create, {:super_fan => valid_attributes}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"create", :controller=>"super_fans", :super_fan=>{"first_name"=>"MyString"}}
-     # ./spec/controllers/super_fans_controller_spec.rb:79:in `block (4 levels) in <top (required)>'
-
-  24) SuperFansController POST create with invalid params assigns a newly created but unsaved super_fan as @super_fan
-     Failure/Error: post :create, {:super_fan => { "first_name" => "invalid value" }}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"create", :controller=>"super_fans", :super_fan=>{"first_name"=>"invalid value"}}
-     # ./spec/controllers/super_fans_controller_spec.rb:88:in `block (4 levels) in <top (required)>'
-
-  25) SuperFansController POST create with invalid params re-renders the 'new' template
-     Failure/Error: post :create, {:super_fan => { "first_name" => "invalid value" }}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"create", :controller=>"super_fans", :super_fan=>{"first_name"=>"invalid value"}}
-     # ./spec/controllers/super_fans_controller_spec.rb:95:in `block (4 levels) in <top (required)>'
-
-  26) SuperFansController PUT update with valid params updates the requested super_fan
-     Failure/Error: put :update, {:id => super_fan.to_param, :super_fan => { "first_name" => "MyString" }}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"update", :controller=>"super_fans", :id=>"1", :super_fan=>{"first_name"=>"MyString"}}
-     # ./spec/controllers/super_fans_controller_spec.rb:110:in `block (4 levels) in <top (required)>'
-
-  27) SuperFansController PUT update with valid params assigns the requested super_fan as @super_fan
-     Failure/Error: put :update, {:id => super_fan.to_param, :super_fan => valid_attributes}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"update", :controller=>"super_fans", :id=>"1", :super_fan=>{"first_name"=>"MyString"}}
-     # ./spec/controllers/super_fans_controller_spec.rb:115:in `block (4 levels) in <top (required)>'
-
-  28) SuperFansController PUT update with valid params redirects to the super_fan
-     Failure/Error: put :update, {:id => super_fan.to_param, :super_fan => valid_attributes}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"update", :controller=>"super_fans", :id=>"1", :super_fan=>{"first_name"=>"MyString"}}
-     # ./spec/controllers/super_fans_controller_spec.rb:121:in `block (4 levels) in <top (required)>'
-
-  29) SuperFansController PUT update with invalid params assigns the super_fan as @super_fan
-     Failure/Error: put :update, {:id => super_fan.to_param, :super_fan => { "first_name" => "invalid value" }}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"update", :controller=>"super_fans", :id=>"1", :super_fan=>{"first_name"=>"invalid value"}}
-     # ./spec/controllers/super_fans_controller_spec.rb:131:in `block (4 levels) in <top (required)>'
-
-  30) SuperFansController PUT update with invalid params re-renders the 'edit' template
-     Failure/Error: put :update, {:id => super_fan.to_param, :super_fan => { "first_name" => "invalid value" }}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"update", :controller=>"super_fans", :id=>"1", :super_fan=>{"first_name"=>"invalid value"}}
-     # ./spec/controllers/super_fans_controller_spec.rb:139:in `block (4 levels) in <top (required)>'
-
-  31) SuperFansController DELETE destroy destroys the requested super_fan
-     Failure/Error: delete :destroy, {:id => super_fan.to_param}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"destroy", :controller=>"super_fans", :id=>"1"}
-     # ./spec/controllers/super_fans_controller_spec.rb:149:in `block (4 levels) in <top (required)>'
-     # ./spec/controllers/super_fans_controller_spec.rb:148:in `block (3 levels) in <top (required)>'
-
-  32) SuperFansController DELETE destroy redirects to the super_fans list
-     Failure/Error: delete :destroy, {:id => super_fan.to_param}, valid_session
-     ActionController::UrlGenerationError:
-       No route matches {:action=>"destroy", :controller=>"super_fans", :id=>"1"}
-     # ./spec/controllers/super_fans_controller_spec.rb:155:in `block (3 levels) in <top (required)>'
-
-  33) Stints GET /stints works! (now write some real specs)
-     Failure/Error: get stints_path
-     NameError:
-       undefined local variable or method `stints_path' for #<RSpec::Core::ExampleGroup::Nested_26::Nested_1:0x00000101cda760>
-     # ./spec/requests/stints_spec.rb:7:in `block (3 levels) in <top (required)>'
-
-  34) SuperFans GET /super_fans works! (now write some real specs)
-     Failure/Error: get super_fans_path
-     NameError:
-       undefined local variable or method `super_fans_path' for #<RSpec::Core::ExampleGroup::Nested_27::Nested_1:0x00000101cb96a0>
-     # ./spec/requests/super_fans_spec.rb:7:in `block (3 levels) in <top (required)>'
-
-  35) StintsController routing routes to #index
-     Failure/Error: get("/stints").should route_to("stints#index")
-       No route matches "/stints"
-     # ./spec/routing/stints_routing_spec.rb:7:in `block (3 levels) in <top (required)>'
-
-  36) StintsController routing routes to #new
-     Failure/Error: get("/stints/new").should route_to("stints#new")
-       No route matches "/stints/new"
-     # ./spec/routing/stints_routing_spec.rb:11:in `block (3 levels) in <top (required)>'
-
-  37) StintsController routing routes to #show
-     Failure/Error: get("/stints/1").should route_to("stints#show", :id => "1")
-       No route matches "/stints/1"
-     # ./spec/routing/stints_routing_spec.rb:15:in `block (3 levels) in <top (required)>'
-
-  38) StintsController routing routes to #edit
-     Failure/Error: get("/stints/1/edit").should route_to("stints#edit", :id => "1")
-       No route matches "/stints/1/edit"
-     # ./spec/routing/stints_routing_spec.rb:19:in `block (3 levels) in <top (required)>'
-
-  39) StintsController routing routes to #create
-     Failure/Error: post("/stints").should route_to("stints#create")
-       No route matches "/stints"
-     # ./spec/routing/stints_routing_spec.rb:23:in `block (3 levels) in <top (required)>'
-
-  40) StintsController routing routes to #update
-     Failure/Error: put("/stints/1").should route_to("stints#update", :id => "1")
-       No route matches "/stints/1"
-     # ./spec/routing/stints_routing_spec.rb:27:in `block (3 levels) in <top (required)>'
-
-  41) StintsController routing routes to #destroy
-     Failure/Error: delete("/stints/1").should route_to("stints#destroy", :id => "1")
-       No route matches "/stints/1"
-     # ./spec/routing/stints_routing_spec.rb:31:in `block (3 levels) in <top (required)>'
-
-  42) SuperFansController routing routes to #index
-     Failure/Error: get("/super_fans").should route_to("super_fans#index")
-       No route matches "/super_fans"
-     # ./spec/routing/super_fans_routing_spec.rb:7:in `block (3 levels) in <top (required)>'
-
-  43) SuperFansController routing routes to #new
-     Failure/Error: get("/super_fans/new").should route_to("super_fans#new")
-       No route matches "/super_fans/new"
-     # ./spec/routing/super_fans_routing_spec.rb:11:in `block (3 levels) in <top (required)>'
-
-  44) SuperFansController routing routes to #show
-     Failure/Error: get("/super_fans/1").should route_to("super_fans#show", :id => "1")
-       No route matches "/super_fans/1"
-     # ./spec/routing/super_fans_routing_spec.rb:15:in `block (3 levels) in <top (required)>'
-
-  45) SuperFansController routing routes to #edit
-     Failure/Error: get("/super_fans/1/edit").should route_to("super_fans#edit", :id => "1")
-       No route matches "/super_fans/1/edit"
-     # ./spec/routing/super_fans_routing_spec.rb:19:in `block (3 levels) in <top (required)>'
-
-  46) SuperFansController routing routes to #create
-     Failure/Error: post("/super_fans").should route_to("super_fans#create")
-       No route matches "/super_fans"
-     # ./spec/routing/super_fans_routing_spec.rb:23:in `block (3 levels) in <top (required)>'
-
-  47) SuperFansController routing routes to #update
-     Failure/Error: put("/super_fans/1").should route_to("super_fans#update", :id => "1")
-       No route matches "/super_fans/1"
-     # ./spec/routing/super_fans_routing_spec.rb:27:in `block (3 levels) in <top (required)>'
-
-  48) SuperFansController routing routes to #destroy
-     Failure/Error: delete("/super_fans/1").should route_to("super_fans#destroy", :id => "1")
-       No route matches "/super_fans/1"
-     # ./spec/routing/super_fans_routing_spec.rb:31:in `block (3 levels) in <top (required)>'
-
-  49) artists/show renders attributes in <p>
-     Failure/Error: render
-     ActionView::Template::Error:
-       undefined method `year' for nil:NilClass
-     # ./app/helpers/application_helper.rb:16:in `age_from_dob'
-     # ./app/views/artists/show.html.erb:16:in `_app_views_artists_show_html_erb__1447059778546250652_2157923760'
-     # ./spec/views/artists/show.html.erb_spec.rb:11:in `block (2 levels) in <top (required)>'
-
-  50) stints/edit renders the edit stint form
-     Failure/Error: render
-     ActionView::Template::Error:
-       No route matches {:action=>"index", :artist_id=>nil, :controller=>"stints"} missing required keys: [:artist_id]
-     # ./app/views/stints/edit.html.erb:2:in `_app_views_stints_edit_html_erb__3684909450151523840_2220902360'
-     # ./spec/views/stints/edit.html.erb_spec.rb:12:in `block (2 levels) in <top (required)>'
-
-  51) stints/index renders a list of stints
-     Failure/Error: render
-     ActionView::Template::Error:
-       No route matches {:action=>"new", :artist_id=>nil, :controller=>"stints"} missing required keys: [:artist_id]
-     # ./app/views/stints/index.html.erb:2:in `_app_views_stints_index_html_erb___1124917747333832352_2220788560'
-     # ./spec/views/stints/index.html.erb_spec.rb:18:in `block (2 levels) in <top (required)>'
-
-  52) stints/new renders new stint form
-     Failure/Error: render
-     ActionView::Template::Error:
-       No route matches {:action=>"index", :artist_id=>nil, :controller=>"stints"} missing required keys: [:artist_id]
-     # ./app/views/stints/new.html.erb:2:in `_app_views_stints_new_html_erb__1384193960515281049_2220671460'
-     # ./spec/views/stints/new.html.erb_spec.rb:12:in `block (2 levels) in <top (required)>'
-
-  53) stints/show renders attributes in <p>
-     Failure/Error: render
-     ActionView::Template::Error:
-       No route matches {:action=>"index", :artist_id=>nil, :controller=>"stints"} missing required keys: [:artist_id]
-     # ./app/views/stints/show.html.erb:2:in `_app_views_stints_show_html_erb___1552933946686929629_2220590860'
-     # ./spec/views/stints/show.html.erb_spec.rb:12:in `block (2 levels) in <top (required)>'
-
-  54) super_fans/edit renders the edit super_fan form
-     Failure/Error: render
-     ActionView::Template::Error:
-       No route matches {:action=>"show", :artist_id=>nil, :controller=>"super_fans", :id=>"1027"} missing required keys: [:artist_id]
-     # ./app/views/super_fans/edit.html.erb:2:in `_app_views_super_fans_edit_html_erb__1303914527987864696_2220481620'
-     # ./spec/views/super_fans/edit.html.erb_spec.rb:14:in `block (2 levels) in <top (required)>'
-
-  55) super_fans/index renders a list of super_fans
-     Failure/Error: render
-     ActionView::Template::Error:
-       No route matches {:action=>"new", :artist_id=>nil, :controller=>"super_fans"} missing required keys: [:artist_id]
-     # ./app/views/super_fans/index.html.erb:2:in `_app_views_super_fans_index_html_erb___492191464776212085_2220252280'
-     # ./spec/views/super_fans/index.html.erb_spec.rb:22:in `block (2 levels) in <top (required)>'
-
-  56) super_fans/new renders new super_fan form
-     Failure/Error: render
-     ActionView::Template::Error:
-       No route matches {:action=>"index", :artist_id=>nil, :controller=>"super_fans"} missing required keys: [:artist_id]
-     # ./app/views/super_fans/new.html.erb:2:in `_app_views_super_fans_new_html_erb__2381011285017929859_2173819760'
-     # ./spec/views/super_fans/new.html.erb_spec.rb:14:in `block (2 levels) in <top (required)>'
-
-  57) super_fans/show renders attributes in <p>
-     Failure/Error: render
-     ActionView::Template::Error:
-       No route matches {:action=>"index", :artist_id=>nil, :controller=>"super_fans"} missing required keys: [:artist_id]
-     # ./app/views/super_fans/show.html.erb:2:in `_app_views_super_fans_show_html_erb__3708197897921328557_2220081780'
-     # ./spec/views/super_fans/show.html.erb_spec.rb:14:in `block (2 levels) in <top (required)>'
-
-Finished in 1.42 seconds
-220 examples, 57 failures, 7 pending
-
-Failed examples:
-
-rspec ./spec/controllers/stints_controller_spec.rb:34 # StintsController GET index assigns all stints as @stints
-rspec ./spec/controllers/stints_controller_spec.rb:42 # StintsController GET show assigns the requested stint as @stint
-rspec ./spec/controllers/stints_controller_spec.rb:50 # StintsController GET new assigns a new stint as @stint
-rspec ./spec/controllers/stints_controller_spec.rb:57 # StintsController GET edit assigns the requested stint as @stint
-rspec ./spec/controllers/stints_controller_spec.rb:66 # StintsController POST create with valid params creates a new Stint
-rspec ./spec/controllers/stints_controller_spec.rb:72 # StintsController POST create with valid params assigns a newly created stint as @stint
-rspec ./spec/controllers/stints_controller_spec.rb:78 # StintsController POST create with valid params redirects to the created stint
-rspec ./spec/controllers/stints_controller_spec.rb:85 # StintsController POST create with invalid params assigns a newly created but unsaved stint as @stint
-rspec ./spec/controllers/stints_controller_spec.rb:92 # StintsController POST create with invalid params re-renders the 'new' template
-rspec ./spec/controllers/stints_controller_spec.rb:103 # StintsController PUT update with valid params updates the requested stint
-rspec ./spec/controllers/stints_controller_spec.rb:113 # StintsController PUT update with valid params assigns the requested stint as @stint
-rspec ./spec/controllers/stints_controller_spec.rb:119 # StintsController PUT update with valid params redirects to the stint
-rspec ./spec/controllers/stints_controller_spec.rb:127 # StintsController PUT update with invalid params assigns the stint as @stint
-rspec ./spec/controllers/stints_controller_spec.rb:135 # StintsController PUT update with invalid params re-renders the 'edit' template
-rspec ./spec/controllers/stints_controller_spec.rb:146 # StintsController DELETE destroy destroys the requested stint
-rspec ./spec/controllers/stints_controller_spec.rb:153 # StintsController DELETE destroy redirects to the stints list
-rspec ./spec/controllers/super_fans_controller_spec.rb:34 # SuperFansController GET index assigns all super_fans as @super_fans
-rspec ./spec/controllers/super_fans_controller_spec.rb:42 # SuperFansController GET show assigns the requested super_fan as @super_fan
-rspec ./spec/controllers/super_fans_controller_spec.rb:50 # SuperFansController GET new assigns a new super_fan as @super_fan
-rspec ./spec/controllers/super_fans_controller_spec.rb:57 # SuperFansController GET edit assigns the requested super_fan as @super_fan
-rspec ./spec/controllers/super_fans_controller_spec.rb:66 # SuperFansController POST create with valid params creates a new SuperFan
-rspec ./spec/controllers/super_fans_controller_spec.rb:72 # SuperFansController POST create with valid params assigns a newly created super_fan as @super_fan
-rspec ./spec/controllers/super_fans_controller_spec.rb:78 # SuperFansController POST create with valid params redirects to the created super_fan
-rspec ./spec/controllers/super_fans_controller_spec.rb:85 # SuperFansController POST create with invalid params assigns a newly created but unsaved super_fan as @super_fan
-rspec ./spec/controllers/super_fans_controller_spec.rb:92 # SuperFansController POST create with invalid params re-renders the 'new' template
-rspec ./spec/controllers/super_fans_controller_spec.rb:103 # SuperFansController PUT update with valid params updates the requested super_fan
-rspec ./spec/controllers/super_fans_controller_spec.rb:113 # SuperFansController PUT update with valid params assigns the requested super_fan as @super_fan
-rspec ./spec/controllers/super_fans_controller_spec.rb:119 # SuperFansController PUT update with valid params redirects to the super_fan
-rspec ./spec/controllers/super_fans_controller_spec.rb:127 # SuperFansController PUT update with invalid params assigns the super_fan as @super_fan
-rspec ./spec/controllers/super_fans_controller_spec.rb:135 # SuperFansController PUT update with invalid params re-renders the 'edit' template
-rspec ./spec/controllers/super_fans_controller_spec.rb:146 # SuperFansController DELETE destroy destroys the requested super_fan
-rspec ./spec/controllers/super_fans_controller_spec.rb:153 # SuperFansController DELETE destroy redirects to the super_fans list
-rspec ./spec/requests/stints_spec.rb:5 # Stints GET /stints works! (now write some real specs)
-rspec ./spec/requests/super_fans_spec.rb:5 # SuperFans GET /super_fans works! (now write some real specs)
-rspec ./spec/routing/stints_routing_spec.rb:6 # StintsController routing routes to #index
-rspec ./spec/routing/stints_routing_spec.rb:10 # StintsController routing routes to #new
-rspec ./spec/routing/stints_routing_spec.rb:14 # StintsController routing routes to #show
-rspec ./spec/routing/stints_routing_spec.rb:18 # StintsController routing routes to #edit
-rspec ./spec/routing/stints_routing_spec.rb:22 # StintsController routing routes to #create
-rspec ./spec/routing/stints_routing_spec.rb:26 # StintsController routing routes to #update
-rspec ./spec/routing/stints_routing_spec.rb:30 # StintsController routing routes to #destroy
-rspec ./spec/routing/super_fans_routing_spec.rb:6 # SuperFansController routing routes to #index
-rspec ./spec/routing/super_fans_routing_spec.rb:10 # SuperFansController routing routes to #new
-rspec ./spec/routing/super_fans_routing_spec.rb:14 # SuperFansController routing routes to #show
-rspec ./spec/routing/super_fans_routing_spec.rb:18 # SuperFansController routing routes to #edit
-rspec ./spec/routing/super_fans_routing_spec.rb:22 # SuperFansController routing routes to #create
-rspec ./spec/routing/super_fans_routing_spec.rb:26 # SuperFansController routing routes to #update
-rspec ./spec/routing/super_fans_routing_spec.rb:30 # SuperFansController routing routes to #destroy
-rspec ./spec/views/artists/show.html.erb_spec.rb:10 # artists/show renders attributes in <p>
-rspec ./spec/views/stints/edit.html.erb_spec.rb:11 # stints/edit renders the edit stint form
-rspec ./spec/views/stints/index.html.erb_spec.rb:17 # stints/index renders a list of stints
-rspec ./spec/views/stints/new.html.erb_spec.rb:11 # stints/new renders new stint form
-rspec ./spec/views/stints/show.html.erb_spec.rb:11 # stints/show renders attributes in <p>
-rspec ./spec/views/super_fans/edit.html.erb_spec.rb:13 # super_fans/edit renders the edit super_fan form
-rspec ./spec/views/super_fans/index.html.erb_spec.rb:21 # super_fans/index renders a list of super_fans
-rspec ./spec/views/super_fans/new.html.erb_spec.rb:13 # super_fans/new renders new super_fan form
-rspec ./spec/views/super_fans/show.html.erb_spec.rb:13 # super_fans/show renders attributes in <p>
+Finished in 6.04 seconds
+213 examples, 0 failures
