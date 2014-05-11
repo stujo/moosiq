@@ -2,7 +2,9 @@ Moosiq::Application.routes.draw do
 
   resources :albums
 
-  resources :tracks
+  resources :tracks do
+    get 'search', on: :collection
+  end
 
   root to: 'home#index'
 
